@@ -180,7 +180,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.Spacer(
-                    length = 0
+                    length = 10
                     ),
 
                 widget.TextBox(
@@ -207,37 +207,7 @@ screens = [
                 widget.Spacer(
                     length = 10
                     ),
-               widget.Clock(
-                        font='FiraCode Nerd Font Propo',
-                        format="  %d/%m/%y | 󱎫 %H:%M ",
-                        foreground="#5e5ef6",
-                        padding=0,
-                        fontsize=16,
-                        decorations=[
-                            RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
-                        ]
-
-                ), 
                 
-               # widget.Spacer(
-               #     length = 10
-               #     ),
-
-               # widget.TextBox(
-               #     font='FiraCode Nerd Font Propo', 
-               #     text = " 󱂵 ",
-               #     foreground = colors[13],
-               #     fontsize = 30,
-               #     mouse_callbacks = {'Button1': lazy.spawn('thunar')},
-               #     decorations=[
-               #         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6, padding_x=9)]
-               #     ),
-
-                
-                widget.Spacer(
-                    length = 370,
-                        ),
-
                 widget.GroupBox( 
                     font="FireCode Nerd Font Propo",
                     active = "#006666",
@@ -254,9 +224,39 @@ screens = [
                     decorations = [RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)]
 
                     ),
+               # widget.Spacer(
+               #     length = 10
+               #     ),
+
+               # widget.TextBox(
+               #     font='FiraCode Nerd Font Propo', 
+               #     text = " 󱂵 ",
+               #     foreground = colors[13],
+               #     fontsize = 30,
+               #     mouse_callbacks = {'Button1': lazy.spawn('thunar')},
+               #     decorations=[
+               #         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6, padding_x=9)]
+               #     ),
+
+                
+                widget.Spacer(
+                    length = 420,
+                        ),
+
+               widget.Clock(
+                        font='FiraCode Nerd Font Propo',
+                        format="  %d/%m/%y | 󱎫 %H:%M ",
+                        foreground="#5e5ef6",
+                        padding=0,
+                        fontsize=16,
+                        decorations=[
+                            RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
+                        ]
+
+                ), 
 
                 widget.Spacer(
-                    length = 200,
+                    length = 250,
                     ),
 
                 widget.Battery(
@@ -366,15 +366,19 @@ screens = [
                         length = 10,
                         ),
 
-                widget.Systray(),
+                widget.Systray(
+                        decorations =[
+                            RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
+                            ]
+                        ),
 
 
             ],
             45,
             # opacity=1.0,
             background="#00000000",
-            margin = [1,0,1,25],
-            # border_width=[2, 4, 2, 4],  # Draw top and bottom borders
+            margin = [1,0,1,0],
+            border_width=[0,0,0,0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         )
         
