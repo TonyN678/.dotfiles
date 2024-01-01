@@ -1,4 +1,3 @@
-
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
@@ -14,32 +13,44 @@ keys = [
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
 
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
+    Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
+    Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
+    Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
 
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    Key([mod, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([mod, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
+    Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    # press mod+z to enter resizing mode, press Esc to escape from resizing mode    
-    KeyChord([mod], "z", [
-        Key([], "h", lazy.layout.grow()),
-        Key([], "l", lazy.layout.shrink()),
-        # set window in 50:50 ratio
-        Key([], "n", lazy.layout.normalize()),
-        # set currently focused window to max
-        Key([], "m", lazy.layout.maximize())],
-        mode=True,
-        name="Resizable"
+    Key([mod, "control"], "Right",
+        lazy.layout.grow_right(),
+        lazy.layout.grow(),
+        lazy.layout.increase_ratio(),
+        lazy.layout.delete(),
         ),
+    Key([mod, "control"], "Left",
+        lazy.layout.grow_left(),
+        lazy.layout.shrink(),
+        lazy.layout.decrease_ratio(),
+        lazy.layout.add(),
+        ),
+    Key([mod, "control"], "Up",
+        lazy.layout.grow_up(),
+        lazy.layout.grow(),
+        lazy.layout.decrease_nmaster(),
+        ),
+    Key([mod, "control"], "Down",
+        lazy.layout.grow_down(),
+        lazy.layout.shrink(),
+        lazy.layout.increase_nmaster(),
+        ),
+
 
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -51,8 +62,8 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "n", lazy.layout.normalize()),
+     
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
@@ -64,6 +75,7 @@ keys = [
     # uncomment to use qtile own search menu
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod], "r", lazy.spawn("rofi -show drun")),
+    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     
     # Keys to increase/decrease screen brightness
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl -s set +5%")),
@@ -89,7 +101,7 @@ group_names = ["1", "2", "3", "4", "5", "6"]
 group_labels = ["", "", "", "", "", "",] 
 #group_labels = ["Terminal", "CodeResources", "Web", "Music", "Files", "Documents", ]
 
-group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall",]
+group_layouts = ["monadtall", "max", "monadtall", "monadtall", "monadtall", "monadtall",]
 
 # Create Group objects with attributes and paste to the list called groups
 for i in range(len(group_names)):
@@ -105,8 +117,8 @@ for i in groups:
         [
         #CHANGE WORKSPACES
         Key([mod], i.name, lazy.group[i.name].toscreen()),
-        Key([mod], "Tab", lazy.screen.next_group()),
-        Key([mod, "shift" ], "Tab", lazy.screen.prev_group()),
+        # Key([mod], "Tab", lazy.screen.next_group()),
+        # Key([mod, "shift" ], "Tab", lazy.screen.prev_group()),
 
         # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND STAY ON WORKSPACE
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
@@ -121,20 +133,20 @@ for i in groups:
 """" LAYOUTS """""
 """"""""""""""""""
 
+def init_layout_theme():
+	return {
+		"border_focus": '#66b2b2',
+		 "border_normal": '#004c4c',
+		}
+
+layout_theme = init_layout_theme()
+
 layouts = [
-    # layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=0),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    layout.MonadTall(allign=0, border_focus='#66b2b2', border_normal='#004c4c', border_width=2, change_size=10, margin=10, single_margin=1),
-    layout.Max()
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+    layout.MonadTall(**layout_theme, allign=0, border_width=2, change_size=10, margin=10, single_margin=0, single_border_width=0),
+    layout.Max(),
+    # layout.Floating(**layout_theme, border_width=2),
+    layout.Columns(**layout_theme, border_on_single=False, border_width=2, margin=10, margin_on_single=None),
+    # layout.Spiral(**layout_theme),
     
 ]
 
@@ -220,13 +232,24 @@ screens = [
                     center_aligned = False,
                     disable_drag = False,
                     fontsize = 16,
-                    margin = 9,
+                    spacing=10,
+		    margin = 9,
+		    urgent_alert_method="line",
+		    urgent_border=colors[15],
                     decorations = [RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)]
 
                     ),
-               # widget.Spacer(
-               #     length = 10
-               #     ),
+                widget.Spacer(
+                    length = 10
+                    ),
+
+		widget.CurrentLayoutIcon(
+			foreground=colors[10],
+			scale=0.45,
+			fmt = "  {}  ",
+		        decorations = [RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)]
+			
+		   ),
 
                # widget.TextBox(
                #     font='FiraCode Nerd Font Propo', 
@@ -326,7 +349,9 @@ screens = [
                     fontsize=16,
                     format = ' 󱩒 {percent:2.0%} ',
                     foreground=colors[17],
-                    backlight_name='amdgpu_bl2',
+		   
+   	            # if the widget stop working someday, check the name again at /sys/class/backlight/
+                    backlight_name='amdgpu_bl0',
                     decorations=[
                         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
                         ]
