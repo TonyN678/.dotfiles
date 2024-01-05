@@ -5,7 +5,8 @@ from libqtile.utils import guess_terminal
 from qtile_extras import widget
 from qtile_extras.widget.decorations import BorderDecoration
 from qtile_extras.widget.decorations import RectDecoration
-mod = "mod1"
+mod = "mod4"
+# can replace with mod1(alt key)
 terminal = guess_terminal()
 
 keys = [
@@ -78,13 +79,19 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     
     # Keys to increase/decrease screen brightness
-    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl -s set +5%")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl -s set 5%-")),
-
+    # Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl -s set +5%")),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("/home/tien/scripts/changebrightness up")),     
+    # Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl -s set 5%-")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("/home/tien/scripts/changebrightness down")),
+    
+ 
     # Keys to increase/decrease audio volume
-    Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset Master 1%-")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset Master 1%+")),
+    # Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
+    Key([], "XF86AudioMute", lazy.spawn("/home/tien/scripts/changevolume mute")),
+    # Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset Master 1%-")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("/home/tien/scripts/changevolume down")),
+    # Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset Master 1%+")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("/home/tien/scripts/changevolume up")),
 
 ]
 
@@ -101,7 +108,7 @@ group_names = ["1", "2", "3", "4", "5", "6"]
 group_labels = ["", "", "", "", "", "",] 
 #group_labels = ["Terminal", "CodeResources", "Web", "Music", "Files", "Documents", ]
 
-group_layouts = ["monadtall", "max", "monadtall", "monadtall", "monadtall", "monadtall",]
+group_layouts = [ "columns", "columns", "columns", "columns", "columns", "columns"]
 
 # Create Group objects with attributes and paste to the list called groups
 for i in range(len(group_names)):
@@ -135,19 +142,18 @@ for i in groups:
 
 def init_layout_theme():
 	return {
-		"border_focus": '#66b2b2',
-		 "border_normal": '#004c4c',
+		"border_focus": '#fdfdff',
+		 "border_normal": '#00000000',
 		}
 
 layout_theme = init_layout_theme()
 
 layouts = [
-    layout.MonadTall(**layout_theme, allign=0, border_width=2, change_size=10, margin=10, single_margin=0, single_border_width=0),
-    layout.Max(),
+    layout.MonadTall(**layout_theme, allign=0, border_width=4, change_size=10, margin=10, single_margin=7, single_border_width=0),
     # layout.Floating(**layout_theme, border_width=2),
-    layout.Columns(**layout_theme, border_on_single=False, border_width=2, margin=10, margin_on_single=None),
+    layout.Columns(**layout_theme, border_on_single=True, border_width=2, margin=10, margin_on_single=15),
     # layout.Spiral(**layout_theme),
-    
+    layout.Max(),
 ]
 
 """"""""""""""""""
@@ -157,7 +163,7 @@ layouts = [
 
 def init_colors():
     return [
-        ["#2e3440", "#2e3440"],  # 0 background
+        ["#444d5f", "#444d5f"],  # 0 background
         ["#d8dee9", "#d8dee9"],  # 1 foreground
         ["#3b4252", "#3b4252"],  # 2 background lighter
         ["#bf616a", "#bf616a"],  # 3 red
@@ -176,6 +182,7 @@ def init_colors():
         ["#a265e5", "#a265e5"],  #16  purple
         ["#ecb4e2", "#ecb4e2"], #17 pink bubblegum
         ["#afeeff", "#afeeff"], #18 light cyan
+	["#6f7787", "#6f7787"], #19 light grey
     ]
 
 colors = init_colors()
@@ -192,19 +199,20 @@ screens = [
         top=bar.Bar(
             [
                 widget.Spacer(
-                    length = 10
+                    length = 7
                     ),
 
-                widget.TextBox(
-                     font = "FiraCode Nerd Font Propo",
-                     text = "󰣇",
-                     foreground = colors[11],
-                     fontsize = 30,
-                     # mouse_callbacks = ,
-                     decorations = [
-                         RectDecoration(colour=colors[0], radius =15, filled=True, padding_y=6)
-                         ]
-                    ),
+               # widget.TextBox(
+               #      font = "FiraCode Nerd Font Propo",
+               #      text = "󰣇",
+               #      foreground = colors[11],
+               #      fontsize = 30,
+               #      # mouse_callbacks = ,
+               #      decorations = [
+               #          RectDecoration(colour=colors[0], radius =15, filled=True, padding_y=6)
+               #          ]
+               #     ),
+
                 # This widget is replacement and reference for the TextBox object above
                 #widget.Image(
                 #        filename='~/.config/qtile/assets/icons/arch.png',
@@ -217,13 +225,13 @@ screens = [
                 #        ),
 
                 widget.Spacer(
-                    length = 10
+                    length = 8
                     ),
                 
                 widget.GroupBox( 
                     font="FireCode Nerd Font Propo",
-                    active = "#006666",
-                    inactive = colors[10],
+                    active = colors[7],
+                    inactive = colors[19],
                     # background = colors[0],
                     foreground = colors[1],
                     highlight_method = "text",
@@ -239,6 +247,23 @@ screens = [
                     decorations = [RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)]
 
                     ),
+
+                widget.Spacer(
+                    length = 10,
+                        ),
+
+                widget.Memory(
+                    font="FiraCode Nerd Font Propo",
+                    foreground=colors[5],
+                    padding=0,
+                    format='  {MemUsed: .1f}{mm}/{MemTotal: .1f}{mm}  ',
+                    fontsize=16,
+                    measure_mem='G',
+                    decorations=[
+                        RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
+                        ]
+                ),
+		 
                 widget.Spacer(
                     length = 10
                     ),
@@ -263,13 +288,13 @@ screens = [
 
                 
                 widget.Spacer(
-                    length = 420,
+                    length = 370,
                         ),
 
                widget.Clock(
                         font='FiraCode Nerd Font Propo',
                         format="  %d/%m/%y | 󱎫 %H:%M ",
-                        foreground="#5e5ef6",
+                        foreground="#c9ccd2",
                         padding=0,
                         fontsize=16,
                         decorations=[
@@ -279,8 +304,18 @@ screens = [
                 ), 
 
                 widget.Spacer(
-                    length = 250,
+                    length = 340,
                     ),
+
+                #widget.StatusNotifier(
+                #        decorations =[
+                #            RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
+                #            ]
+                #        ),
+
+                #widget.Spacer(
+                #        length = 10,
+                #        ),
 
                 widget.Battery(
                     font="FiraCode Nerd Font Propo",
@@ -304,22 +339,6 @@ screens = [
                     ]
                 ),
                 
-                widget.Spacer(
-                    length = 10,
-                        ),
-
-                widget.Memory(
-                    font="FiraCode Nerd Font Propo",
-                    foreground=colors[5],
-                    padding=0,
-                    format='  {MemUsed: .1f}{mm}/{MemTotal: .1f}{mm}  ',
-                    fontsize=16,
-                    measure_mem='G',
-                    decorations=[
-                        RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
-                        ]
-                ),
-
                 widget.Spacer(
                         length = 10,
                         ),
@@ -387,24 +406,15 @@ screens = [
                         ]
                 ),
 
-                widget.Spacer(
-                        length = 10,
-                        ),
-
-                widget.Systray(
-                        decorations =[
-                            RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
-                            ]
-                        ),
 
 
             ],
             45,
             # opacity=1.0,
-            background="#00000000",
-            margin = [1,0,1,0],
-            border_width=[0,0,0,0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            background="#2d333f",
+            margin = [12,12,0,12],
+            # border_width=[3,13,3,13],  # Draw top and bottom borders
+            border_color=["f0f0ef", "bae1ff", "f0f0ef", "bae1ff"]  # Borders are magenta
         )
         
     ),
