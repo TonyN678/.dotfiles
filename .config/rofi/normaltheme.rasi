@@ -1,0 +1,139 @@
+configuration {
+    font: "FiraCode Nerd Font 13";
+	click-to-exit: 	true;
+}
+
+@import "font.rasi"
+@import "./themes/colors/Dracula"
+
+* {
+    background-color:               @background;
+    text-color:                     @foreground;
+
+}
+window {
+    transparency:                   "real";
+    background-color:               @background;
+    text-color:                     @foreground;
+    border:                  		4px;
+    border-color:                  	@lightpurple;
+    border-radius:                  12px;
+    width:                          700px;
+    location:                       center;
+    anchor:                         center;
+    x-offset:                       0;
+    y-offset:                       0;
+}
+
+/*config for the text before text entry  */
+prompt {
+    enabled: 				true;
+    margin: 		 		0px 5px 0px 5px;
+    padding:    			6px 9px 6px 9px;
+    background-color: 		@selector;
+    text-color: 			@foreground;
+    border:                  		1px 1px 1px 1px;
+    border-color:                  	@selector;
+    border-radius:                  10px;
+}
+
+/*config for entry space  */
+entry {
+    background-color:               @background;
+    text-color:                     @foreground;
+    border:                  		0px 0px 3px 0px;
+    border-radius:                  0px;
+    border-color:                  	@selector;
+    placeholder-color:              @gray;
+    placeholder:                    "Please type to filter...";
+    expand:                         true;
+    horizontal-align:               0;
+    blink:                          true;
+    padding:                        6px;
+    margin:                        0px 0px 0px 5px;
+}
+
+inputbar {
+	children: [ prompt, entry ];
+    spacing:                        0;
+    background-color:               @background;
+    text-color:                     @foreground;
+    expand:                         false;
+    margin:                         0px 0px 0px 0px;
+    padding:                        0px;
+    position:                       center;
+}
+
+listview {
+    background-color:               @background;
+    columns:                        1;
+    lines:			    7;
+    spacing:                        20px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    background-color:               @background;
+    children:                       [ inputbar, message, listview ];
+    spacing:                       	20px;
+    padding:                        10px;
+}
+
+element {
+    background-color:               @background;
+    text-color:                     @foreground;
+    orientation:                    horizontal;
+    border-radius:                  0px;
+    padding:                        5px;
+}
+
+element-icon {
+    background-color: 				inherit;
+    text-color:       				inherit;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    size:                           30;
+    border:                         0px;
+}
+
+element-text {
+    background-color: 				inherit;
+    text-color:       				inherit;
+    expand:                         true;
+    horizontal-align:               0;
+    vertical-align:                 1;
+    margin:                         2px 0px 2px 16px;
+}
+
+element selected {
+    background-color:               @selector;
+    text-color:                     @foreground;
+    border:                  		0px;
+    border-radius:                  10px;
+    border-color:                  	@selector;
+}
+
+element.active,
+element.selected.urgent {
+  background-color: @selected;
+  text-color: @background;
+  border-color: @selected;
+}
+
+element.selected.urgent {
+  border-color: @selector;
+}
+
+element.urgent,
+element.selected.active {
+  background-color: @off;
+  text-color: @background;
+  border-color: @off;
+}
+
+element.selected.active {
+  border-color: @selector;
+}
+
