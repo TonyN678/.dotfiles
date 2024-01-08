@@ -1,8 +1,8 @@
-configuration {
-    font: "FiraCode Nerd Font 13";
-	click-to-exit: 	true;
-}
-
+/*
+""""""""""""""""""""""""""
+""""""" THEMES """""""""""
+""""""""""""""""""""""""""
+*/
 @import "font.rasi"
 @import "./themes/colors/Dracula"
 
@@ -15,10 +15,10 @@ window {
     transparency:                   "real";
     background-color:               @background;
     text-color:                     @foreground;
-    border:                  		4px;
+    border:                  		5px;
     border-color:                  	@lightpurple;
     border-radius:                  12px;
-    width:                          700px;
+    width:                          800px;
     location:                       center;
     anchor:                         center;
     x-offset:                       0;
@@ -34,7 +34,7 @@ prompt {
     text-color: 			@foreground;
     border:                  		1px 1px 1px 1px;
     border-color:                  	@selector;
-    border-radius:                  10px;
+    border-radius:                  12px;
 }
 
 /*config for entry space  */
@@ -45,7 +45,7 @@ entry {
     border-radius:                  0px;
     border-color:                  	@selector;
     placeholder-color:              @gray;
-    placeholder:                    "Please type to filter...";
+    placeholder:                    "Don't stand there, type something...";
     expand:                         true;
     horizontal-align:               0;
     blink:                          true;
@@ -59,7 +59,7 @@ inputbar {
     background-color:               @background;
     text-color:                     @foreground;
     expand:                         false;
-    margin:                         0px 0px 0px 0px;
+    margin:                         10px;
     padding:                        0px;
     position:                       center;
 }

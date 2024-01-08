@@ -1,0 +1,20 @@
+This is a guide on how to use Rofi search tool and config stuffs
+
+For a Rofi window to open, there need a config file(bare bone) and a theme.rasi file(customizations); which they are in the scripts and themes folders.
+
+In the Rofi Directory, there are the main config.rasi file, and the normaltheme.rasi file is the theme for the main config.rasi file. Others application could also use the theme by add " -theme PATH_TO_THEME_FILE" at the start of rofi script.
+
+The main Rofi function(mod + r) includes:
+    run
+    drun
+    file
+    window
+    calculator
+    emoji
+
+
+Other Application using the normaltheme.rasi file:
+    clipmenu
+
+
+

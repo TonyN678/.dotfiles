@@ -1,5 +1,5 @@
 from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from qtile_extras import widget
@@ -75,7 +75,9 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     # uncomment to use qtile own search menu
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod], "r", lazy.spawn("rofi -show drun")),
+    Key([mod], "r", lazy.spawn("rofi -theme ~/.config/rofi/normaltheme.rasi -show drun")),
+    
+    Key([mod], "q", lazy.spawn("./.config/rofi/script/powermenu")),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     
     # Keys to increase/decrease screen brightness
@@ -135,6 +137,19 @@ for i in groups:
         ]
     )
 
+# Add a ScratchPad Group With a terminal dropdown
+groups.append(
+    ScratchPad("scratchpad", [
+        DropDown("term", "kitty", y=0.15,height=0.7),
+        DropDown("music", "kitty mocp", y=0.13, x=0.23, width=0.5, height=0.7)
+        ])
+    )
+# Add ScratchPad toogle key
+keys.extend([
+    Key([mod, "shift"], "Return", lazy.group['scratchpad'].dropdown_toggle('term')),
+    Key([mod], "m", lazy.group['scratchpad'].dropdown_toggle('music')),
+])
+
 
 """"""""""""""""""
 """" LAYOUTS """""
@@ -151,7 +166,7 @@ layout_theme = init_layout_theme()
 layouts = [
     layout.MonadTall(**layout_theme, allign=0, border_width=4, change_size=10, margin=10, single_margin=7, single_border_width=0),
     # layout.Floating(**layout_theme, border_width=2),
-    layout.Columns(**layout_theme, border_on_single=True, border_width=2, margin=10, margin_on_single=15),
+    layout.Columns(**layout_theme, border_on_single=False, border_width=2, margin=10, margin_on_single=10),
     # layout.Spiral(**layout_theme),
     layout.Max(),
 ]
@@ -199,7 +214,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.Spacer(
-                    length = 7
+                    length = 10
                     ),
 
                # widget.TextBox(
@@ -259,6 +274,7 @@ screens = [
                     format='  {MemUsed: .1f}{mm}/{MemTotal: .1f}{mm}  ',
                     fontsize=16,
                     measure_mem='G',
+ 		    mouse_callbacks = {'Button1': lazy.spawn('kitty btop')},
                     decorations=[
                         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
                         ]
@@ -304,18 +320,29 @@ screens = [
                 ), 
 
                 widget.Spacer(
-                    length = 340,
+                    length = 250,
                     ),
+		widget.TextBox(
+ 			text=" 󰂯 ",
+			foreground = colors[18],
+			mouse_callbacks = {'Button1': lazy.spawn('./.config/rofi/script/bluetooth')},
+ 
+                        decorations =[
+                            RectDecoration(colour=colors[0], group=True,  radius=13, filled=True, padding_y=6)
+			    ]
+			),
+                widget.TextBox(
+ 			text="󰖩 ",
+			foreground = colors[11],
+			mouse_callbacks = {'Button1': lazy.spawn('./.config/rofi/script/wifimenu')},
+                        decorations =[
+                            RectDecoration(colour=colors[0], group=True,  radius=13, filled=True, padding_y=6)
+                            ]
+                        ),
 
-                #widget.StatusNotifier(
-                #        decorations =[
-                #            RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
-                #            ]
-                #        ),
-
-                #widget.Spacer(
-                #        length = 10,
-                #        ),
+                widget.Spacer(
+                        length = 10,
+                        ),
 
                 widget.Battery(
                     font="FiraCode Nerd Font Propo",

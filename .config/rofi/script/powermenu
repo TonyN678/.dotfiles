@@ -1,0 +1,13 @@
+#! /bin/sh
+
+chosen=$(printf "\n\n\n\n\n" | rofi -dmenu -theme ~/.config/rofi/themes/powermenu.rasi -font "FiraCode Nerd Font Bold 25" -p "See you later, ${USER^}!")
+
+case "$chosen" in
+	"") poweroff ;;
+	"") reboot ;;
+	"") systemctl suspend ;;
+	"") systemctl hibernate ;;
+	"") loginctl terminate-user tien ;;
+	"") betterlockscreen -l ;;
+	*) exit 1 ;;
+esac

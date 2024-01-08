@@ -16,9 +16,9 @@ EMPTY_FILE=/tmp/batteryempty
 FULL_FILE=/tmp/batteryfull
 
 # Reset notifications if the computer is charging/discharging
-if [ "$BATTERY_DISCHARGING" -eq 1 ] && [ -f $FULL_FILE ]; then
+if [ "$BATTERY_DISCHARGING" -eq 1 ] && [ -f $FULL_FILE ] && [ "$BATTERY_LEVEL" -le 95 ]; then
     rm $FULL_FILE
-elif [ "$BATTERY_DISCHARGING" -eq 0 ] && [ -f $EMPTY_FILE ]; then
+elif [ "$BATTERY_DISCHARGING" -eq 0 ] && [ -f $EMPTY_FILE ] && [ "$BATTERY_LEVEL" -gt 30 ]; then
     rm $EMPTY_FILE
 fi
 

@@ -305,7 +305,7 @@ show_menu() {
 }
 
 # Rofi command to pipe into, can add any options here
-rofi_command="rofi -theme /home/tien/.config/rofi/themes/bluetooth.rasi -dmenu -no-fixed-num-lines -yoffset -100 -i"
+rofi_command="rofi -theme /home/tien/.config/rofi/themes/bluetooth.rasi -dmenu -no-fixed-num-lines"
 
 case "$1" in
     --status)

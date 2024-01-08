@@ -10,18 +10,16 @@ configuration {
 }
 
 @import "font.rasi"
-@import "colors.rasi"
+@import "~/.config/rofi/themes/colors/Dracula.rasi"
 
 window {
     transparency:                   "real";
     background-color:               @background;
     text-color:                     @foreground;
-    border:                  		1px;
+    border:                  		7px;
     border-color:                  	@selector;
     border-radius:                  12px;
-    width:                          500px;
-    location:                       center;
-    anchor:                         center;
+    width:                          510px;
     x-offset:                       0;
     y-offset:                       0;
 }
