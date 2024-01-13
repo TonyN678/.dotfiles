@@ -1,5 +1,9 @@
 Guide to customising Firefox
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+*** Tribute to RoyalHeart for the configs and ideas:
+https://github.com/RoyalHeart/config/tree/main/chrome
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 userContent.css file is for customising the look and feel of the main firefox page, the one that we see directly.
 userChrome.css file is for customising the internal things in Firefox like the setting of add-on page, literally the backend pages.
 
