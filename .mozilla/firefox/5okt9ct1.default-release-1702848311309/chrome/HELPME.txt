@@ -1,4 +1,4 @@
-Guide to customising Firefox
+** Guide to customising Firefox
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 *** Tribute to RoyalHeart for the configs and ideas:
