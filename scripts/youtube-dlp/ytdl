@@ -1,0 +1,24 @@
+#!/bin/sh
+
+
+destination=$1
+
+case $1 in
+-h)
+	echo "1st is the directory to download to"
+echo "2nd is the link to the youtube video"
+echo "3rd is the video or playlist"
+echo "4th is the items to download in the playlist"
+	;;
+esac
+
+case $3 in
+video)
+
+	yt-dlp $2 -P "$destination" -x --audio-format "mp3" --audio-quality bestaudio -o "%(title)s.%(ext)s"
+	;;
+
+playlist)
+	yt-dlp $2 -P "$destination" --playlist-items "$4" -x --audio-format "mp3" --audio-quality "bestaudio" -o "%(title)s.%(ext)s"
+	;;
+esac

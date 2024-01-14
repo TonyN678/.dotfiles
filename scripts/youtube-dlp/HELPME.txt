@@ -1,0 +1,11 @@
+This is a tool to automate download videos as mp3 from youtube, mainly used for downloading musics.
+
+DOWNLOAD
+https://github.com/yt-dlp/yt-dlp
+
+yt-dlp is a advanced version of yt-dl in python, and yt-dlp is used as a shell script in terminal with fast speed.
+
+USAGE
+
+ytdl PATH_TO_DOWNLOAD LINK_TO_VIDEO video/playlist (for playlist only, which song to download in order: "1,2,3,45,4:7" )
+see the script ytdl for more information
