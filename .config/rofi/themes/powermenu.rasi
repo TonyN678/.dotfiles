@@ -7,11 +7,11 @@ fake-transparency: true;
 // Colors, modify them to your needs!
 * {
     window-bg-color:        #00000000;
-    title-text-color:       #81a1c1;
-    selected-bg-color:      #8fbcbb;
+    title-text-color:       #8a2be4;
+    selected-bg-color:      #BF94E4;
     unselected-bg-color:    transparent;
     selected-text-color:    #ffffff;
-    unselected-text-color:  #fffff2;
+    unselected-text-color:  #3366ff;
 }
 
 // Positions and margins, most likely not going to change
@@ -20,7 +20,7 @@ fake-transparency: true;
     option-inset-padding:   3.9% 0% 2% 0%;
     option-radius:          100%;
     number-of-options:      6;
-    font: "FiraCode Nerd Font 50";
+    font: "FiraCode Nerd Font Bold 50";
 }
 
 #window {
@@ -35,16 +35,24 @@ fake-transparency: true;
   border-color:       #00000000;
 }
 
+// The title
 #inputbar {
   children: [ prompt ];
-  margin: 100px 100px 70px 500px;
+  margin: 100px 500px 100px 500px;
   background-color: transparent;
 }
 
 prompt {
   text-color: @title-text-color;
-  background-color: transparent;
+  background-color: #ffffff00;
+  padding: 30px 30px 30px 30px;
+  border-radius: 100px;
+  border: 2px;
+  border-color: #ffd3fc;
+  position: center;
 }
+
+
 
 #horibox {
   background-color: transparent;
@@ -75,14 +83,17 @@ margin:15px 17px 17px 22px;
 }
 
 #element {
-  text-color:         #fffff2;
+  text-color:         @unselected-text-color;
   padding:            100px 100px 100px 100px;
   border-radius:      @option-radius;
   background-color:   @unselected-bg-color;
   margin: 0px 150px 0px 80px;
+  border: 0px;
+  border-color: #ffffff;
 }
 
 #element.selected {
   text-color:         @selected-text-color;
   background-color:   @selected-bg-color;
+  border-color: @selected-bg-color;
 }
