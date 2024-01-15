@@ -110,7 +110,7 @@ group_names = ["1", "2", "3", "4", "5", "6"]
 group_labels = ["", "", "", "", "", "",] 
 #group_labels = ["Terminal", "CodeResources", "Web", "Music", "Files", "Documents", ]
 
-group_layouts = [ "columns", "columns", "columns", "columns", "columns", "columns"]
+group_layouts = [ "columns", "monadtall", "monadtall", "columns", "columns", "columns"]
 
 # Create Group objects with attributes and paste to the list called groups
 for i in range(len(group_names)):
@@ -164,7 +164,7 @@ def init_layout_theme():
 layout_theme = init_layout_theme()
 
 layouts = [
-    layout.MonadTall(**layout_theme, allign=0, border_width=4, change_size=10, margin=10, single_margin=7, single_border_width=0),
+    layout.MonadTall(**layout_theme, allign=0, border_width=2, change_size=10, margin=10, single_margin=7, single_border_width=0),
     # layout.Floating(**layout_theme, border_width=2),
     layout.Columns(**layout_theme, border_on_single=False, border_width=2, margin=10, margin_on_single=10),
     # layout.Spiral(**layout_theme),
@@ -178,7 +178,7 @@ layouts = [
 
 def init_colors():
     return [
-        ["#444d5f", "#444d5f"],  # 0 background
+        ["#3b4252", "#3b4252"],  # 0 background
         ["#d8dee9", "#d8dee9"],  # 1 foreground
         ["#3b4252", "#3b4252"],  # 2 background lighter
         ["#bf616a", "#bf616a"],  # 3 red
@@ -255,7 +255,7 @@ screens = [
                     center_aligned = False,
                     disable_drag = False,
                     fontsize = 16,
-                    spacing=10,
+                    spacing=11,
 		    margin = 9,
 		    urgent_alert_method="line",
 		    urgent_border=colors[15],
@@ -304,13 +304,13 @@ screens = [
 
                 
                 widget.Spacer(
-                    length = 370,
+                    length = 350,
                         ),
 
                widget.Clock(
                         font='FiraCode Nerd Font Propo',
                         format="  %d/%m/%y | 󱎫 %H:%M ",
-                        foreground="#c9ccd2",
+                        foreground="#fffafa",
                         padding=0,
                         fontsize=16,
                         decorations=[
@@ -322,6 +322,13 @@ screens = [
                 widget.Spacer(
                     length = 250,
                     ),
+
+##		widget.Systray(
+#			foreground = colors[18],
+#                        decorations =[
+#                            RectDecoration(colour=colors[0], group=True,  radius=13, filled=True, padding_y=6)
+#			    ]
+#			),
 		widget.TextBox(
  			text=" 󰂯 ",
 			foreground = colors[18],
@@ -397,6 +404,7 @@ screens = [
                     foreground=colors[17],
 		   
    	            # if the widget stop working someday, check the name again at /sys/class/backlight/
+
                     backlight_name='amdgpu_bl0',
                     decorations=[
                         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
@@ -416,6 +424,7 @@ screens = [
                         fmt='  {} ',
                         fontsize=16,
                         scroll=True,
+			mouse_callbacks={'Button1': lazy.spawn("pavucontrol")},
                          decorations=[
                             RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6,group=True)
                         ]
@@ -428,6 +437,7 @@ screens = [
                         fmt='{}  ',
                         fontsize=16,
                         scroll=True,
+			mouse_callbacks={'Button1': lazy.spawn("pavucontrol")},
                          decorations=[
                             RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6,group=True)
                         ]
@@ -438,7 +448,7 @@ screens = [
             ],
             45,
             # opacity=1.0,
-            background="#2d333f",
+            background="#4c566a",
             margin = [12,12,0,12],
             # border_width=[3,13,3,13],  # Draw top and bottom borders
             border_color=["f0f0ef", "bae1ff", "f0f0ef", "bae1ff"]  # Borders are magenta
@@ -470,7 +480,10 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-    ]
+        Match(wm_class="Pavucontrol"),  # GPG key password entry
+        #Match(wm_class=""),  # GPG key password entry
+    ],
+	border_width = 0,
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"
