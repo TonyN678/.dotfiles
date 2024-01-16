@@ -6,11 +6,11 @@ fake-transparency: true;
 
 // Colors, modify them to your needs!
 * {
-    window-bg-color:        #00000000;
-    title-text-color:       #81a1c1;
-    selected-bg-color:      #8fbcbb;
+    window-bg-color:        #a265e500;
+    title-text-color:       #ffffe3;
+    selected-bg-color:      #a265e9;
     unselected-bg-color:    transparent;
-    selected-text-color:    #ffffff;
+    selected-text-color:    #CAA9E0;
     unselected-text-color:  #fffff2;
 }
 
@@ -44,6 +44,10 @@ fake-transparency: true;
 prompt {
   text-color: @title-text-color;
   background-color: transparent;
+  border: 2px;
+  border-color: #ffffff;
+  border-radius: 100px;
+  padding: 30px;
 }
 
 #horibox {
@@ -64,18 +68,17 @@ prompt {
 
 #element-icon {
 background-color: transparent;
-text-color: #fffff2;
 }
 
 #element-text {
 expand: false;
 background-color: transparent;
-text-color: #fffff2;
+text-color: @unselected-text-color;
 margin:15px 17px 17px 22px;
 }
 
 #element {
-  text-color:         #fffff2;
+  text-color:         @unselected-text-color;
   padding:            100px 100px 100px 100px;
   border-radius:      @option-radius;
   background-color:   @unselected-bg-color;
@@ -83,6 +86,10 @@ margin:15px 17px 17px 22px;
 }
 
 #element.selected {
-  text-color:         @selected-text-color;
+  text-color:         @selected-text-color ;
   background-color:   @selected-bg-color;
+}
+
+#element-text.selected {
+  text-color:         @selected-text-color ;
 }
