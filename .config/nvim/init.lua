@@ -1,6 +1,5 @@
 ---@diagnostic disable: undefined-global
 
-vim.g.mapleader = " "
 
 -- ----------------------
 -- LAZY PACKAGE MANAGER  |
@@ -27,3 +26,5 @@ require("lazy").setup("plugins")
 
 -- import vim options from vim-options.lua
 require("vim-options")
+-- import keymaps config from keymaps.lua
+require("keymaps")

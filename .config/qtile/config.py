@@ -107,7 +107,8 @@ groups = []
 group_names = ["1", "2", "3", "4", "5", "6"]
 
 #group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ",]
-group_labels = ["", "", "", "", "", "",] 
+#group_labels = ["", "", "", "", "", "",] 
+group_labels = ["󰏃","󰏃","󰏃","󰏃","󰏃","󰏃",] 
 #group_labels = ["Terminal", "CodeResources", "Web", "Music", "Files", "Documents", ]
 
 group_layouts = [ "columns", "monadtall", "monadtall", "columns", "columns", "columns"]
@@ -178,7 +179,7 @@ layouts = [
 
 def init_colors():
     return [
-        ["#3b4252", "#3b4252"],  # 0 background
+        ["#434c5e", "#293e39"],  # 0 background
         ["#d8dee9", "#d8dee9"],  # 1 foreground
         ["#3b4252", "#3b4252"],  # 2 background lighter
         ["#bf616a", "#bf616a"],  # 3 red
@@ -198,6 +199,7 @@ def init_colors():
         ["#ecb4e2", "#ecb4e2"], #17 pink bubblegum
         ["#afeeff", "#afeeff"], #18 light cyan
 	["#6f7787", "#6f7787"], #19 light grey
+        ["#CAA9E0", "#CAA9E0"], #20 purple-pink"
     ]
 
 colors = init_colors()
@@ -247,7 +249,6 @@ screens = [
                     font="FireCode Nerd Font Propo",
                     active = colors[7],
                     inactive = colors[19],
-                    # background = colors[0],
                     foreground = colors[1],
                     highlight_method = "text",
                     this_current_screen_border = colors[12],
@@ -269,7 +270,7 @@ screens = [
 
                 widget.Memory(
                     font="FiraCode Nerd Font Propo",
-                    foreground=colors[5],
+                    foreground=colors[20],
                     padding=0,
                     format='  {MemUsed: .1f}{mm}/{MemTotal: .1f}{mm}  ',
                     fontsize=16,
@@ -284,10 +285,10 @@ screens = [
                     length = 10
                     ),
 
-		widget.CurrentLayoutIcon(
-			foreground=colors[10],
-			scale=0.45,
-			fmt = "  {}  ",
+		widget.CurrentLayout(
+			foreground=colors[20],
+			font="FiraCode Nerd Font 13",
+			fmt = " {} ",
 		        decorations = [RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)]
 			
 		   ),
@@ -304,13 +305,13 @@ screens = [
 
                 
                 widget.Spacer(
-                    length = 350,
+                    length = 300,
                         ),
 
                widget.Clock(
                         font='FiraCode Nerd Font Propo',
                         format="  %d/%m/%y | 󱎫 %H:%M ",
-                        foreground="#fffafa",
+                        foreground=colors[20],
                         padding=0,
                         fontsize=16,
                         decorations=[
@@ -331,7 +332,7 @@ screens = [
 #			),
 		widget.TextBox(
  			text=" 󰂯 ",
-			foreground = colors[18],
+			foreground = colors[20],
 			mouse_callbacks = {'Button1': lazy.spawn('./.config/rofi/script/bluetooth')},
  
                         decorations =[
@@ -340,7 +341,7 @@ screens = [
 			),
                 widget.TextBox(
  			text="󰖩 ",
-			foreground = colors[11],
+			foreground = colors[20],
 			mouse_callbacks = {'Button1': lazy.spawn('./.config/rofi/script/wifimenu')},
                         decorations =[
                             RectDecoration(colour=colors[0], group=True,  radius=13, filled=True, padding_y=6)
@@ -353,7 +354,7 @@ screens = [
 
                 widget.Battery(
                     font="FiraCode Nerd Font Propo",
-                    foreground=colors[4],
+                    foreground=colors[20],
                     low_foreground=colors[7],
                     low_percentage=0.3,
                     # notification_timeout= ,
@@ -380,7 +381,7 @@ screens = [
                 widget.ThermalSensor(
                     font="FiraCode Nerd Font Propo",
                     fontsize=16,
-                    foreground=colors[16],
+                    foreground=colors[20],
                     foreground_alert=colors[3],
                     metric=True,    
                     padding=0,
@@ -401,7 +402,7 @@ screens = [
                     font="FiraCode Nerd Font Propo",
                     fontsize=16,
                     format = ' 󱩒 {percent:2.0%} ',
-                    foreground=colors[17],
+                    foreground=colors[20],
 		   
    	            # if the widget stop working someday, check the name again at /sys/class/backlight/
 
@@ -417,7 +418,7 @@ screens = [
 
                 widget.Volume(
                         font="FiraCode Nerd Font Propo",
-                        foreground=colors[18],
+                        foreground=colors[20],
                         padding=0,
                         emoji=True,
                         emoji_list=['󰖁','','','󰕾'],
@@ -432,7 +433,7 @@ screens = [
                 ),                
                 widget.Volume(
                         font="FiraCode Nerd Font Propo",
-                        foreground=colors[8],
+                        foreground=colors[20],
                         padding=0,
                         fmt='{}  ',
                         fontsize=16,
@@ -448,8 +449,9 @@ screens = [
             ],
             45,
             # opacity=1.0,
-            background="#4c566a",
-            margin = [12,12,0,12],
+            background=["#4c566a", "#4c566a"],
+            #background=["#00000000"],
+            margin = [12,12,5,12],
             # border_width=[3,13,3,13],  # Draw top and bottom borders
             border_color=["f0f0ef", "bae1ff", "f0f0ef", "bae1ff"]  # Borders are magenta
         )
