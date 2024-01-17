@@ -111,7 +111,7 @@ group_names = ["1", "2", "3", "4", "5", "6"]
 group_labels = ["󰏃","󰏃","󰏃","󰏃","󰏃","󰏃",] 
 #group_labels = ["Terminal", "CodeResources", "Web", "Music", "Files", "Documents", ]
 
-group_layouts = [ "columns", "monadtall", "monadtall", "columns", "columns", "columns"]
+group_layouts = [ "columns", "max", "columns", "columns", "columns", "columns"]
 
 # Create Group objects with attributes and paste to the list called groups
 for i in range(len(group_names)):
