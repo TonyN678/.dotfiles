@@ -1,5 +1,8 @@
 ---@diagnostic disable: undefined-global
 
+-- Set leader key
+vim.g.mapleader = " "
+
 
 -- ----------------------
 -- LAZY PACKAGE MANAGER  |

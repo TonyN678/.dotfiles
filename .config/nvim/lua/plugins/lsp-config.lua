@@ -1,11 +1,16 @@
 return {
+  
+  -- mason is a lsp or language server protocol manager
+  -- or more simpler: programming language's syntax helper
   {
     "williamboman/mason.nvim",
     config = function()
       require("mason").setup()
     end
   },
-
+  
+  -- This tool connects mason and lspconfig from nvim together to make it easier to configure
+  -- Instead of the old way to connect them manually
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
@@ -14,13 +19,17 @@ return {
       })
     end
   },
-
+  
+  -- This is the original lsp in nvim come by default
   {
     "neovim/nvim-lspconfig",
     config = function()
+      
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
       local lspconfig = require('lspconfig')
-      lspconfig.pylsp.setup({})
-      lspconfig.lua_ls.setup({})
+      lspconfig.pylsp.setup({capabilities=capabilities})
+      lspconfig.lua_ls.setup({capabilities=capabilities})
 
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
       vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})

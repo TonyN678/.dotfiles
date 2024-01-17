@@ -9,25 +9,6 @@ return {
             theme = "dracula"
                 },
         
-         sections = {
-             lualine_x = {
-        
-                {
-                'fileformat',
-                 symbols = {
-                 unix = '', --  e712
-                 dos = '',  --  e70f
-                 mac = '',  --  e711
-                            }
-                },
-
-                {
-
-                },
-
-                        }
-
-                  },
         })
     end
 }
