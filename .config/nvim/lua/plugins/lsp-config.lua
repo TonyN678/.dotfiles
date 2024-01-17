@@ -1,3 +1,4 @@
+---@diagnostic disable: trailing-space
 return {
   
   -- mason is a lsp or language server protocol manager
@@ -15,7 +16,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-          ensure_installed = {"lua_ls", "pylsp"}
+          ensure_installed = {"lua_ls", "pyright", "bashls", "cssls", "html",}
       })
     end
   },
@@ -28,8 +29,13 @@ return {
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       local lspconfig = require('lspconfig')
-      lspconfig.pylsp.setup({capabilities=capabilities})
-      lspconfig.lua_ls.setup({capabilities=capabilities})
+      local lsp_servers = {"lua_ls", "pyright", "bashls", "cssls", "html",}  
+      
+      for _, server in ipairs(lsp_servers) do
+        lspconfig[server].setup({capabilities=capabilities})
+      end
+      --lspconfig.pylsp.setup({capabilities=capabilities})
+      --lspconfig.lua_ls.setup({capabilities=capabilities})
 
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
       vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, {})

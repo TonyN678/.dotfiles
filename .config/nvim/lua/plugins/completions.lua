@@ -1,3 +1,4 @@
+---@diagnostic disable: trailing-space
 return {
   
   -- These plugins are for the nvim-cmp to communicate with the language server
@@ -6,11 +7,11 @@ return {
     'hrsh7th/cmp-nvim-lsp',
     dependencies = {
       'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline'
     }
   },
-  
+
   -- plugins for provide suggestions
   {
     'L3MON4D3/LuaSnip',
