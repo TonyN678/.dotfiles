@@ -10,14 +10,6 @@ return {
       enforce_regular_tabs = true,
       always_show_bufferline = false,
       hover = { enabled = true, delay = 200, reveal = {'close'}},
-      offsets = {
-        {
-          filetype = "NvimTree",
-          text = "File Explorer",
-          text_align = "center",
-          separator = true,
-        }
-      },
       color_icons = true,      
       show_buffer_icons = true, -- disable filetype icons for buffers
       show_buffer_close_icons = true,
@@ -43,8 +35,8 @@ return {
     }
     
     -- Keybindings
-    vim.keymap.set({'n', 'i'}, '<C-]>', ':BufferLineCycleNext<CR>', {})
-    vim.keymap.set({'n', 'i'}, '<C-[>', ':BufferLineCyclePrev<CR>', {})
+    vim.keymap.set({'n', }, '<C-]>', ':BufferLineCycleNext<CR>', {})
+    vim.keymap.set({'n', }, '<C-[>', ':BufferLineCyclePrev<CR>', {})
     vim.keymap.set({'n', 'i'}, '<C-p>', ':BufferLineTogglePin<CR>', {})
     vim.keymap.set({'n'}, '<leader>P', ':BufferLinePick<CR>', {})
     --vim.keymap.set({'n'}, '<leader>bc', ':BufferLinePickClose', {})

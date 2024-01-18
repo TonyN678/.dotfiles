@@ -1,0 +1,60 @@
+format = """\
+[](bg:#00000000 fg:#660066)\
+$username\
+[](fg:#660066 bg:#d896ff)\
+[](fg:#d896ff bg:#800080)\
+$time\
+[](fg:#800080 bg:#ffe5e5)\
+[](fg:#ffe5e5 bg:#fdc0ff)\
+$directory\
+[](fg:#fdc0ff bg:#beedff)\
+[](fg:#beedff bg:#1c3687)\
+$git_branch\
+$git_status\
+$git_metrics\
+[](fg:#1c3687 bg:#00000000)\
+$character\
+"""
+# You can also replace your username with a neat symbol like  to save some space
+[username]
+show_always = true
+style_user = "bg:#660066"
+style_root = "bg:#ff0065"
+format = '[$user ]($style)'
+
+[directory]
+format = "[ $path ]($style)"
+style = "fg:#3B76F0 bg:#fdc0ff"
+
+[git_branch]
+format = '[ $symbol$branch(:$remote_branch) ]($style)'
+symbol = "  "
+style = "fg:#ffffff bg:#1c3687"
+
+[git_status]
+format = '[$all_status]($style)'
+style = "fg:#ffffff bg:#1c3687"
+
+[git_metrics]
+format = "([+$added]($added_style))[]($added_style)"
+added_style = "fg:#ffffff bg:#1c3687"
+deleted_style = "fg:bright-red bg:235"
+disabled = false
+
+[hg_branch]
+format = "[ $symbol$branch ]($style)"
+symbol = " "
+
+[cmd_duration]
+format = "[  $duration ]($style)"
+style = "fg:bright-white bg:18"
+
+[character]
+success_symbol = '[](bold green) '
+error_symbol = '[ ✗](#E84D44) '
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#800080"
+format = '[[ 󱑍 $time ](bg:#800080 fg:#8DFBD2)]($style)'
