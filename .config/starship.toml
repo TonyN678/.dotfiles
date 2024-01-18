@@ -1,11 +1,9 @@
 format = """\
 [](bg:#00000000 fg:#660066)\
 $username\
-[](fg:#660066 bg:#d896ff)\
-[](fg:#d896ff bg:#800080)\
-$time\
-[](fg:#800080 bg:#ffe5e5)\
-[](fg:#ffe5e5 bg:#fdc0ff)\
+[](fg:#660066 bg:#be29ec)\
+[](fg:#be29ec bg:#d896ff)\
+[](fg:#d896ff bg:#fdc0ff)\
 $directory\
 [](fg:#fdc0ff bg:#beedff)\
 [](fg:#beedff bg:#1c3687)\
@@ -24,7 +22,7 @@ format = '[$user ]($style)'
 
 [directory]
 format = "[ $path ]($style)"
-style = "fg:#3B76F0 bg:#fdc0ff"
+style = "fg:#000000 bg:#fdc0ff"
 
 [git_branch]
 format = '[ $symbol$branch(:$remote_branch) ]($style)'

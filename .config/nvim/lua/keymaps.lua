@@ -23,10 +23,16 @@ Map('n', 'H', '_', opts)
 Map('n', 'L', '$', opts)
 
 -- Reload configuration without restart nvim
-Map('n', '<leader>r', ':so %<CR>')
+Map('n', '<leader>r', ':source %<CR>')
 
 -- Fast saving with <leader> and s
 Map('n', '<leader>s', ':w<CR>')
 
 -- Close all windows and exit from Neovim with <leader> and q
 Map('n', '<leader>q', ':qa!<CR>')
+-- use U for redo :))
+Map('n', 'U', '<C-r>', {})
+
+-- Insert empty line without entering insert mode
+Map('n', '<leader>o', ':<C-u>call append(line("."), repeat([""], v:count1))<CR>', opts)
+Map('n', '<leader>O', ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>', opts)
