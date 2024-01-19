@@ -141,7 +141,7 @@ for i in groups:
 # Add a ScratchPad Group With a terminal dropdown
 groups.append(
     ScratchPad("scratchpad", [
-        DropDown("term", "kitty", y=0.15,height=0.7),
+        DropDown("term", "kitty",x=0.25, y=0.15, width=0.45, height=0.6),
         DropDown("music", "kitty mocp", y=0.13, x=0.23, width=0.5, height=0.7)
         ])
     )
