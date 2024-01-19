@@ -1,4 +1,5 @@
 format = """\
+[ ](fg:#00000000 bg:#00000000)\
 [](bg:#00000000 fg:#660066)\
 $username\
 [](fg:#660066 bg:#be29ec)\
@@ -11,7 +12,7 @@ $git_branch\
 $git_status\
 $git_metrics\
 [](fg:#1c3687 bg:#00000000)\
-$character\
+[ ](fg:#00000000 bg:#00000000)\
 """
 # You can also replace your username with a neat symbol like  to save some space
 [username]
