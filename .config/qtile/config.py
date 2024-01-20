@@ -1,12 +1,22 @@
-from libqtile import bar, layout, widget
+from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from qtile_extras import widget
 from qtile_extras.widget.decorations import BorderDecoration
 from qtile_extras.widget.decorations import RectDecoration
-mod = "mod4"
-# can replace with mod1(alt key)
+import os, subprocess
+
+@hook.subscribe.startup_once
+def autostart_once():
+	home = os.path.expanduser('~/.config/qtile/autostart.sh')
+	subprocess.Popen([home])
+
+
+
+mod = "mod4" # window key
+alt_key = "mod1"
+
 terminal = guess_terminal()
 
 keys = [

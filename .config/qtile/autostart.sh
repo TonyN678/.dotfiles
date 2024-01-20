@@ -1,5 +1,7 @@
-# preserve the wallpaper set by nitrogen
-nitrogen --restore &
+#!/bin/sh
+
+# preserve the wallpaper 
+feh --bg-scale ~/Wallpapers/Aesthetic2.png &
 
 # apply picom settings when the session starts
 picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 -b -f &
