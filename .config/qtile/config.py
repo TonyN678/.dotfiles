@@ -121,7 +121,7 @@ group_names = ["1", "2", "3", "4", "5", "6"]
 group_labels = ["󰏃","󰏃","󰏃","󰏃","󰏃","󰏃",] 
 #group_labels = ["Terminal", "CodeResources", "Web", "Music", "Files", "Documents", ]
 
-group_layouts = [ "columns", "max", "columns", "columns", "columns", "columns"]
+group_layouts = [ "columns", "columns", "columns", "columns", "columns", "columns"]
 
 # Create Group objects with attributes and paste to the list called groups
 for i in range(len(group_names)):
@@ -175,7 +175,7 @@ def init_layout_theme():
 layout_theme = init_layout_theme()
 
 layouts = [
-    layout.MonadTall(**layout_theme, allign=0, border_width=2, change_size=10, margin=10, single_margin=7, single_border_width=0),
+    layout.MonadTall(**layout_theme, allign=0, border_width=0, change_size=10, margin=10, single_margin=0, single_border_width=0),
     # layout.Floating(**layout_theme, border_width=2),
     layout.Columns(**layout_theme, border_on_single=False, border_width=2, margin=10, margin_on_single=10),
     # layout.Spiral(**layout_theme),
