@@ -3,9 +3,10 @@ from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen, Sc
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from qtile_extras import widget
-from qtile_extras.widget.decorations import BorderDecoration
+# from qtile_extras.widget.decorations import BorderDecoration
 from qtile_extras.widget.decorations import RectDecoration
 import os, subprocess
+from libqtile.command import lazy
 
 @hook.subscribe.startup_once
 def autostart_once():
@@ -63,16 +64,6 @@ keys = [
         ),
 
 
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key(
-        [mod, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
     Key([mod], "n", lazy.layout.normalize()),
      
     # Toggle between different layouts as defined below
@@ -161,7 +152,38 @@ keys.extend([
     Key([mod], "m", lazy.group['scratchpad'].dropdown_toggle('music')),
 ])
 
+#for key, x, y in [("Left", -10, 0), 
+#                  ("Right", 10, 0), 
+#                  ("Up", 0, -10),
+#                  ("Down", 0, 10)]:
+#    keys.append(Key([mod, "control"], key, lazy.window.move_floating(x, y)))
+#    keys.append(Key([mod, "shift"], key, lazy.window.resize_floating(x, y)))
 
+@lazy.window.function 
+def resize_floating_window(window, width: int = 0, height: int = 0): 
+    window.cmd_set_size_floating(window.width + width, window.height + height)
+@lazy.window.function 
+def move_floating_window(window, x: int = 0, y: int = 0):
+    new_x = window.float_x + x
+    new_y = window.float_y + y
+    window.cmd_set_position_floating(new_x, new_y)
+@lazy.window.function 
+def zoom_in_window(window):
+    window.cmd_set_position_floating(0,0)
+    window.cmd_set_size_floating(500, 400)
+
+keys.extend([
+Key([mod, "control" ], "h", resize_floating_window(width=10), desc='increase width by 10'), 
+Key([mod, "control" ], "l", resize_floating_window(width=-10), desc='decrease width by 10'), 
+Key([mod, "control" ], "k", resize_floating_window(height=10), desc='increase height by 10'), 
+Key([mod, "control" ], "j", resize_floating_window(height=-10), desc='decrease height by 10'),
+
+Key([mod, 'shift'], "u", move_floating_window(x=10)),
+Key([mod, 'shift'], 'y', move_floating_window(x=-10)),
+Key([mod, 'shift'], 'i', move_floating_window(y=10)),
+Key([mod, 'shift'], 'o', move_floating_window(y=-10)),
+
+])
 """"""""""""""""""
 """" LAYOUTS """""
 """"""""""""""""""
@@ -176,7 +198,7 @@ layout_theme = init_layout_theme()
 
 layouts = [
     layout.MonadTall(**layout_theme, allign=0, border_width=0, change_size=10, margin=10, single_margin=0, single_border_width=0),
-    # layout.Floating(**layout_theme, border_width=2),
+    layout.Floating(),
     layout.Columns(**layout_theme, border_on_single=False, border_width=2, margin=10, margin_on_single=10),
     # layout.Spiral(**layout_theme),
     layout.Max(),
