@@ -70,7 +70,6 @@ keys = [
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key([mod],"f", lazy.window.toggle_fullscreen(),desc="Toggle fullscreen on the focused window",),
-    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
 
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
@@ -152,25 +151,26 @@ keys.extend([
     Key([mod], "m", lazy.group['scratchpad'].dropdown_toggle('music')),
 ])
 
-#for key, x, y in [("Left", -10, 0), 
-#                  ("Right", 10, 0), 
-#                  ("Up", 0, -10),
-#                  ("Down", 0, 10)]:
-#    keys.append(Key([mod, "control"], key, lazy.window.move_floating(x, y)))
-#    keys.append(Key([mod, "shift"], key, lazy.window.resize_floating(x, y)))
+#------------ FLOATING WINDOW ----------------- #
 
+# reize foating windows with keybinds
 @lazy.window.function 
 def resize_floating_window(window, width: int = 0, height: int = 0): 
     window.cmd_set_size_floating(window.width + width, window.height + height)
+
+# Move floating window with keybinds
 @lazy.window.function 
 def move_floating_window(window, x: int = 0, y: int = 0):
     new_x = window.float_x + x
     new_y = window.float_y + y
     window.cmd_set_position_floating(new_x, new_y)
+
+# turn a window to floating state, move to middle and resize
 @lazy.window.function 
 def zoom_in_window(window):
-    window.cmd_set_position_floating(0,0)
-    window.cmd_set_size_floating(500, 400)
+    lazy.window.toggle_floating() 
+    window.cmd_set_position_floating(550,260)
+    window.cmd_set_size_floating(790, 600)
 
 keys.extend([
 Key([mod, "control" ], "h", resize_floating_window(width=10), desc='increase width by 10'), 
@@ -178,12 +178,17 @@ Key([mod, "control" ], "l", resize_floating_window(width=-10), desc='decrease wi
 Key([mod, "control" ], "k", resize_floating_window(height=10), desc='increase height by 10'), 
 Key([mod, "control" ], "j", resize_floating_window(height=-10), desc='decrease height by 10'),
 
-Key([mod, 'shift'], "u", move_floating_window(x=10)),
-Key([mod, 'shift'], 'y', move_floating_window(x=-10)),
-Key([mod, 'shift'], 'i', move_floating_window(y=10)),
-Key([mod, 'shift'], 'o', move_floating_window(y=-10)),
+Key([mod, 'shift'], "h", move_floating_window(x=10), desc='move 10 left'),
+Key([mod, 'shift'], 'l', move_floating_window(x=-10), desc='move 10 right'),
+Key([mod, 'shift'], 'k', move_floating_window(y=10), desc='move 10 up'),
+Key([mod, 'shift'], 'j', move_floating_window(y=-10), desc='move 10 down'),
+
+Key([mod, 'shift'], 't', zoom_in_window(), desc='immidiately turn a window to floating, move to middle of the screen and resize'),
+Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
 
 ])
+
+
 """"""""""""""""""
 """" LAYOUTS """""
 """"""""""""""""""
