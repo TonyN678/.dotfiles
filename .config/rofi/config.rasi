@@ -2,7 +2,7 @@
 configuration {
     font: "FiraCode Nerd Font 13";
 	click-to-exit: 	true;
-    	modi: ["run", "drun", "filebrowser" , "window", "calc", "emoji"];            
+    	modi: ["run", "window", "drun", "filebrowser" , "calc", "emoji"];            
         show-icons: true;        
         icon-theme: "Papirus"; 
      /*---------- Drun settings ----------*/                                      

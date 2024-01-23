@@ -23,6 +23,7 @@ nm-applet &
 
 # Enable swipe and pinch gestures for touchpad
 # libinput-gestures &
+libinput-gestures-setup stop desktop autostart start
 
 # lxsession for theme color config
-# lxsession &
+lxsession &

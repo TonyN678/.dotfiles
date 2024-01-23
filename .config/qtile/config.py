@@ -144,7 +144,9 @@ groups.append(
     ScratchPad("scratchpad", [
         DropDown("term", "kitty",x=0.25, y=0.15, width=0.45, height=0.6),
         DropDown("calculator", "kitty qalc",x=0.25, y=0.15, width=0.45, height=0.6),
-        DropDown("music", "kitty mocp", y=0.13, x=0.23, width=0.5, height=0.7)
+        DropDown("music", "kitty mocp", y=0.13, x=0.23, width=0.5, height=0.7),
+        DropDown("protonvpn", "kitty protonvpn-cli connect", y=0.13, x=0.23, width=0.5, height=0.7),
+        DropDown("weather", "kitty -o font_size=11 --hold curl wttr.in", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
         ])
     )
 # Add ScratchPad toogle key
@@ -152,6 +154,8 @@ keys.extend([
     Key([mod, "shift"], "Return", lazy.group['scratchpad'].dropdown_toggle('term')),
     Key([mod], "m", lazy.group['scratchpad'].dropdown_toggle('music')),
     Key([mod], "c", lazy.group['scratchpad'].dropdown_toggle('calculator')),
+    Key([mod], "v", lazy.group['scratchpad'].dropdown_toggle('protonvpn')),
+    # Key([mod], "b", lazy.group['scratchpad'].dropdown_toggle('weather')),
 ])
 
 #------------ FLOATING WINDOW ----------------- #
@@ -329,17 +333,18 @@ screens = [
                     length = 2
                     ),
 
-		widget.CurrentLayout(
+		widget.CurrentLayoutIcon(
 			foreground=colors[20],
-			font="FiraCode Nerd Font 13",
+			scale= 0.5,
 			fmt = " {} ",
-		        decorations = [RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)]
+			padding= 15,
+			decorations = [RectDecoration(colour=colors[0], extra_width=20,radius=13, filled=True, padding_y=6)]
 			
 		   ),
 
                 
                 widget.Spacer(
-                    length = 670,
+                    length = 500,
                         ),
 
 
@@ -362,9 +367,27 @@ screens = [
         #                    ]
         #                ),
 
-        #        widget.Spacer(
-        #                length = 10,
-        #                ),
+		widget.Wttr(
+			font = "FiraCode Nerd Font",
+			fontsize = 16,
+			foreground = colors[20],
+			padding = 15,
+			location = {},
+			# Add %l for location, 
+			format = "%c%t | %w",
+			units = 'm',
+			update_interval = 10,
+			user_agent = 'Qtile',
+			mouse_callbacks = {'Button1': lazy.group['scratchpad'].dropdown_toggle('weather') },
+                        decorations =[
+                            RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
+                            ]
+			
+			),
+		
+                widget.Spacer(
+                        length = 10,
+                        ),
 
                 widget.Battery(
                     font="FiraCode Nerd Font Propo",
@@ -476,9 +499,6 @@ screens = [
                 ),
 
 
-                widget.Spacer(
-                        length = 10,
-                        ),
                 
 		widget.Systray(
 			icon_size = 20,
@@ -491,7 +511,8 @@ screens = [
             # opacity=1.0,
             background=["#4c566a", "#4c566a"],
             #background=["#00000000"],
-            margin = [12,12,5,12],
+           # north east south west
+	     margin = [7,12,0,12],
             # border_width=[3,13,3,13],  # Draw top and bottom borders
             border_color=["f0f0ef", "bae1ff", "f0f0ef", "bae1ff"]  # Borders are magenta
         )
