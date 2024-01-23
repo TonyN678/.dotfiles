@@ -209,7 +209,6 @@ layout_theme = init_layout_theme()
 
 layouts = [
     layout.MonadTall(**layout_theme, allign=0, border_width=0, change_size=10, margin=10, single_margin=0, single_border_width=0),
-    layout.Floating(),
     layout.Columns(**layout_theme, border_on_single=False, border_width=2, margin=10, margin_on_single=10),
     # layout.Spiral(**layout_theme),
     layout.Max(),
@@ -527,8 +526,11 @@ mouse = [
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
+# dgroup list is for setting which application goes to which group
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: list
+dgroups_app_rules = [
+	#Rule(Match(wm_class=['qutebrowser']), group="2"),
+]  
 follow_mouse_focus = True
 bring_front_click = True
 floats_kept_above = True
@@ -545,7 +547,7 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
-        Match(wm_class="Pavucontrol"),  # GPG key password entry
+        Match(wm_class="Pavucontrol"), 
         Match(wm_class="Blueman-manager"),  
         Match(wm_class="Gestures"),  
         Match(wm_class="Nvidia-settings"),  
@@ -557,7 +559,9 @@ floating_layout = layout.Floating(
         Match(title="htop"), 
         Match(title="mocicon"), 
     ],
-	border_width = 0,
+	border_width=2,
+	border_focus="#ffffff",
+	border_normal="#00000000",
 )
 auto_fullscreen = True
 focus_on_window_activation = "smart"
