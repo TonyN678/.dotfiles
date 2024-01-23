@@ -8,6 +8,7 @@ from qtile_extras.widget.decorations import RectDecoration
 import os, subprocess
 from libqtile.command import lazy
 
+
 @hook.subscribe.startup_once
 def autostart_once():
 	home = os.path.expanduser('~/.config/qtile/autostart.sh')
@@ -104,14 +105,14 @@ keys = [
 groups = []
 
 # Group's number
-group_names = ["1", "2", "3", "4", "5", "6"]
+group_names = ["1", "2", "3", "4",]
 
 #group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ",]
 #group_labels = ["", "", "", "", "", "",] 
-group_labels = ["󰏃","󰏃","󰏃","󰏃","󰏃","󰏃",] 
+group_labels = ["󰏃","󰏃","󰏃","󰏃"] 
 #group_labels = ["Terminal", "CodeResources", "Web", "Music", "Files", "Documents", ]
 
-group_layouts = [ "columns", "columns", "columns", "columns", "columns", "columns"]
+group_layouts = [ "columns", "columns", "columns", "columns"]
 
 # Create Group objects with attributes and paste to the list called groups
 for i in range(len(group_names)):
@@ -142,6 +143,7 @@ for i in groups:
 groups.append(
     ScratchPad("scratchpad", [
         DropDown("term", "kitty",x=0.25, y=0.15, width=0.45, height=0.6),
+        DropDown("calculator", "kitty qalc",x=0.25, y=0.15, width=0.45, height=0.6),
         DropDown("music", "kitty mocp", y=0.13, x=0.23, width=0.5, height=0.7)
         ])
     )
@@ -149,6 +151,7 @@ groups.append(
 keys.extend([
     Key([mod, "shift"], "Return", lazy.group['scratchpad'].dropdown_toggle('term')),
     Key([mod], "m", lazy.group['scratchpad'].dropdown_toggle('music')),
+    Key([mod], "c", lazy.group['scratchpad'].dropdown_toggle('calculator')),
 ])
 
 #------------ FLOATING WINDOW ----------------- #
@@ -168,10 +171,9 @@ def move_floating_window(window, x: int = 0, y: int = 0):
 # turn a window to floating state, move to middle and resize
 @lazy.window.function 
 def zoom_in_window(window):
-    lazy.window.toggle_floating() 
-    window.cmd_set_position_floating(550,260)
+    lazy.window.toggle_floating()
+    window.cmd_center()
     window.cmd_set_size_floating(790, 600)
-
 keys.extend([
 Key([mod, "control" ], "h", resize_floating_window(width=10), desc='increase width by 10'), 
 Key([mod, "control" ], "l", resize_floating_window(width=-10), desc='decrease width by 10'), 
@@ -241,12 +243,6 @@ def init_colors():
 
 colors = init_colors()
 
-widget_defaults = dict(
-    font="sans",
-    fontsize=14,
-    padding=6,
-)
-extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
@@ -289,60 +285,19 @@ screens = [
                     foreground = colors[1],
                     highlight_method = "text",
                     this_current_screen_border = colors[12],
-                    borderwidth = 2,
+                    borderwidth = 0,
                     center_aligned = False,
                     disable_drag = False,
                     fontsize = 16,
-                    spacing=11,
-		    margin = 9,
+                    spacing=5,
+		    margin = 10,
 		    urgent_alert_method="line",
 		    urgent_border=colors[15],
                     decorations = [RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)]
-
                     ),
 
                 widget.Spacer(
                     length = 10,
-                        ),
-
-                widget.Memory(
-                    font="FiraCode Nerd Font Propo",
-                    foreground=colors[20],
-                    padding=0,
-                    format='  {MemUsed: .1f}{mm}/{MemTotal: .1f}{mm}  ',
-                    fontsize=16,
-                    measure_mem='G',
- 		    mouse_callbacks = {'Button1': lazy.spawn('kitty btop')},
-                    decorations=[
-                        RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
-                        ]
-                ),
-		 
-                widget.Spacer(
-                    length = 10
-                    ),
-
-		widget.CurrentLayout(
-			foreground=colors[20],
-			font="FiraCode Nerd Font 13",
-			fmt = " {} ",
-		        decorations = [RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)]
-			
-		   ),
-
-               # widget.TextBox(
-               #     font='FiraCode Nerd Font Propo', 
-               #     text = " 󱂵 ",
-               #     foreground = colors[13],
-               #     fontsize = 30,
-               #     mouse_callbacks = {'Button1': lazy.spawn('thunar')},
-               #     decorations=[
-               #         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6, padding_x=9)]
-               #     ),
-
-                
-                widget.Spacer(
-                    length = 300,
                         ),
 
                widget.Clock(
@@ -356,38 +311,60 @@ screens = [
                         ]
 
                 ), 
-
+		 
                 widget.Spacer(
-                    length = 250,
+                    length = 2 
                     ),
 
-##		widget.Systray(
-#			foreground = colors[18],
-#                        decorations =[
-#                            RectDecoration(colour=colors[0], group=True,  radius=13, filled=True, padding_y=6)
-#			    ]
-#			),
-		widget.TextBox(
- 			text=" 󰂯 ",
-			foreground = colors[20],
-			mouse_callbacks = {'Button1': lazy.spawn('./.config/rofi/script/bluetooth')},
- 
-                        decorations =[
-                            RectDecoration(colour=colors[0], group=True,  radius=13, filled=True, padding_y=6)
-			    ]
-			),
                 widget.TextBox(
- 			text="󰖩 ",
-			foreground = colors[20],
-			mouse_callbacks = {'Button1': lazy.spawn('./.config/rofi/script/wifimenu')},
-                        decorations =[
-                            RectDecoration(colour=colors[0], group=True,  radius=13, filled=True, padding_y=6)
-                            ]
+                    font='FiraCode Nerd Font Propo', 
+                    text = " 󱂵 ",
+                    foreground = colors[20],
+                    fontsize = 27,
+                    mouse_callbacks = {'Button1': lazy.spawn('thunar')},
+                    decorations=[
+                        RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6, padding_x=9)]
+                    ),
+                widget.Spacer(
+                    length = 2
+                    ),
+
+		widget.CurrentLayout(
+			foreground=colors[20],
+			font="FiraCode Nerd Font 13",
+			fmt = " {} ",
+		        decorations = [RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)]
+			
+		   ),
+
+                
+                widget.Spacer(
+                    length = 670,
                         ),
 
-                widget.Spacer(
-                        length = 10,
-                        ),
+
+
+	#	widget.TextBox(
+ 	#		text="  󰂯 ",
+	#		foreground = colors[20],
+	#		mouse_callbacks = {'Button1': lazy.spawn('./.config/rofi/script/bluetooth')},
+ 
+        #                decorations =[
+        #                    RectDecoration(colour=colors[0], group=True,  radius=13, filled=True, padding_y=6)
+	#		    ]
+	#		),
+        #        widget.TextBox(
+ 	#		text="󰖩  ",
+	#		foreground = colors[20],
+	#		mouse_callbacks = {'Button1': lazy.spawn('./.config/rofi/script/wifimenu')},
+        #                decorations =[
+        #                    RectDecoration(colour=colors[0], group=True,  radius=13, filled=True, padding_y=6)
+        #                    ]
+        #                ),
+
+        #        widget.Spacer(
+        #                length = 10,
+        #                ),
 
                 widget.Battery(
                     font="FiraCode Nerd Font Propo",
@@ -415,6 +392,23 @@ screens = [
                         length = 10,
                         ),
 
+                widget.Memory(
+                    font="FiraCode Nerd Font Propo",
+                    foreground=colors[20],
+                    padding=0,
+                    format='  {MemUsed: .1f}{mm}/{MemTotal: .1f}{mm}  ',
+                    fontsize=16,
+                    measure_mem='G',
+ 		    mouse_callbacks = {'Button1': lazy.spawn('kitty btop')},
+                    decorations=[
+                        RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
+                        ]
+                ),
+
+                widget.Spacer(
+                        length = 10,
+                        ),
+                
                 widget.ThermalSensor(
                     font="FiraCode Nerd Font Propo",
                     fontsize=16,
@@ -482,6 +476,15 @@ screens = [
                 ),
 
 
+                widget.Spacer(
+                        length = 10,
+                        ),
+                
+		widget.Systray(
+			icon_size = 20,
+			padding = 2,	
+		),
+
 
             ],
             45,
@@ -506,9 +509,11 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
 follow_mouse_focus = True
-bring_front_click = False
+bring_front_click = True
 floats_kept_above = True
 cursor_warp = False
+
+# The flaoting window will remember its palce once being moved first time
 floating_layout = layout.Floating(
     float_rules=[
         # Run the utility of `xprop` to see the wm class and name of an X client.
@@ -520,7 +525,16 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
         Match(wm_class="Pavucontrol"),  # GPG key password entry
-        #Match(wm_class=""),  # GPG key password entry
+        Match(wm_class="Blueman-manager"),  
+        Match(wm_class="Gestures"),  
+        Match(wm_class="Nvidia-settings"),  
+        Match(wm_class="Font-manager"),  
+        Match(wm_class="Thunar"),  
+        Match(wm_class="Lxappearance"),  
+        Match(wm_class="Nm-connection-editor"), 
+        Match(title="btop"), 
+        Match(title="htop"), 
+        Match(title="mocicon"), 
     ],
 	border_width = 0,
 )
