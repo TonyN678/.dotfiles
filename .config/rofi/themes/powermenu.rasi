@@ -7,11 +7,11 @@ fake-transparency: true;
 // Colors, modify them to your needs!
 * {
     window-bg-color:        #a265e500;
-    title-text-color:       #ffffe3;
+    title-text-color:       #000000;
     selected-bg-color:      #a265e9;
     unselected-bg-color:    transparent;
-    selected-text-color:    #CAA9E0;
-    unselected-text-color:  #fffff2;
+    selected-text-color:   #fffff2; 
+    unselected-text-color:  #4d1c31;
 }
 
 // Positions and margins, most likely not going to change
