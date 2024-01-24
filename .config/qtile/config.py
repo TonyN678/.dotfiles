@@ -343,7 +343,7 @@ screens = [
 
                 
                 widget.Spacer(
-                    length = 500,
+                    length = 470,
                         ),
 
 
@@ -459,7 +459,8 @@ screens = [
 		   
    	            # if the widget stop working someday, check the name again at /sys/class/backlight/
 
-                    backlight_name='amdgpu_bl0',
+                    #backlight_name='amdgpu_bl0',
+                    backlight_name='amdgpu_bl1',
                     decorations=[
                         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
                         ]
@@ -555,6 +556,7 @@ floating_layout = layout.Floating(
         Match(wm_class="Thunar"),  
         Match(wm_class="Lxappearance"),  
         Match(wm_class="Nm-connection-editor"), 
+        Match(wm_class="Grub-customizer"), 
         Match(title="btop"), 
         Match(title="htop"), 
         Match(title="mocicon"), 
