@@ -147,6 +147,8 @@ groups.append(
         DropDown("music", "kitty mocp", y=0.13, x=0.23, width=0.5, height=0.7),
         DropDown("protonvpn", "kitty protonvpn-cli connect", y=0.13, x=0.23, width=0.5, height=0.7),
         DropDown("weather", "kitty -o font_size=11 --hold curl wttr.in", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
+        DropDown("Btop", "kitty btop", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
+        DropDown("Calendar", "kitty --hold calcurse", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
         ])
     )
 # Add ScratchPad toogle key
@@ -309,6 +311,7 @@ screens = [
                         foreground=colors[20],
                         padding=0,
                         fontsize=16,
+			mouse_callbacks = {'Button1': lazy.group['scratchpad'].dropdown_toggle('Calendar') },
                         decorations=[
                             RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
                         ]
@@ -421,7 +424,7 @@ screens = [
                     format='  {MemUsed: .1f}{mm}/{MemTotal: .1f}{mm}  ',
                     fontsize=16,
                     measure_mem='G',
- 		    mouse_callbacks = {'Button1': lazy.spawn('kitty btop')},
+ 		    mouse_callbacks = {'Button1': lazy.group['scratchpad'].dropdown_toggle('Btop')},
                     decorations=[
                         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
                         ]
