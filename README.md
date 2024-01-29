@@ -2,7 +2,7 @@
 <h1>My Qtile Rice</h1> 
 </div>
 
-<a href="#"><img align="center" src="./Assets/preview2.png" alt="Preview Image 1"></a>
+<!-- <a href="#"><img align="center" src="./Assets/preview2.png" alt="Preview Image 1"></a> -->
 <a href="#"><img align="center" src="./Assets/preview1.png" alt="Preview Image 2"></a>
 
 
@@ -13,7 +13,7 @@
 
 #### Core Programs
 <ul>  
-<li>Operating System: Arch Linux</li>
+<li><b>Operating System:</b> Arch Linux</li>
 <li>Window Manager: Qtile</li>
 <li>Display Manager: None (display manager is bloated)</li>
 <li>Terminal Emulator: Kitty</li>
@@ -40,5 +40,8 @@
 <li>Brightness Daemon: birghtnessctl</li>
 </ul>
 
+<div align="left">
+<h2>Tribute</h2>
 
+</div>
 
