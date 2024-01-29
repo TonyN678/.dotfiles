@@ -8,15 +8,15 @@
 
 <div align="left">
 <h2>Details</h2>
-<p>I started my ricing journey from near the end of my year 11 and during the long summer holidays, I decided to focus on learning more about the Linux world which has led me to exploring awesome linux's rices and also craft my very unique own rice. (I use arch btw)</p>
+<p>I started my ricing journey during my year 11's long summer holidays, finally decided to learn  more about the linux system, which has led me to exploring awesome linux's rices and also craft my very unique own rice. ( I use arch btw :> )</p>
 </div>
 
 #### Core Programs
 <ul>  
 <li><b>Operating System:</b> Arch Linux</li>
-<li>Window Manager: Qtile</li>
+<li><b>Window Manager:</b> Qtile</li>
 <li>Display Manager: None (display manager is bloated)</li>
-<li>Terminal Emulator: Kitty</li>
+<li>Terminal Emulator: St</li>
 <li>Prompt Customisation: Starship</li>
 <li>Search tool: Rofi (along with aur packages rofi-emoji and rofi-calc)</li>
 <li>Compositor: Picom (simpleanims's fork with animations)</li>
