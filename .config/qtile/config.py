@@ -19,7 +19,7 @@ def autostart_once():
 mod = "mod4" # window key
 alt_key = "mod1"
 
-terminal = guess_terminal()
+terminal = "st"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -142,13 +142,13 @@ for i in groups:
 # Add a ScratchPad Group With a terminal dropdown
 groups.append(
     ScratchPad("scratchpad", [
-        DropDown("term", "kitty",x=0.25, y=0.15, width=0.45, height=0.6),
-        DropDown("calculator", "kitty qalc",x=0.25, y=0.15, width=0.45, height=0.6),
-        DropDown("music", "kitty mocp", y=0.13, x=0.23, width=0.5, height=0.7),
-        DropDown("protonvpn", "kitty protonvpn-cli connect", y=0.13, x=0.23, width=0.5, height=0.7),
-        DropDown("weather", "kitty -o font_size=11 --hold curl wttr.in", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
-        DropDown("Btop", "kitty btop", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
-        DropDown("Calendar", "kitty --hold calcurse", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
+        DropDown("term", "st",x=0.25, y=0.15, width=0.45, height=0.6),
+        DropDown("calculator", "st qalc",x=0.25, y=0.15, width=0.45, height=0.6),
+        DropDown("music", "st mocp", y=0.13, x=0.23, width=0.5, height=0.7),
+        DropDown("protonvpn", "st gnome-keyring-daemon --start ; st nm-applet; st protonvpn-cli connect", y=0.13, x=0.23, width=0.5, height=0.7),
+        # DropDown("weather", "kitty -o font_size=11 --hold curl wttr.in", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
+        DropDown("htop", "st htop", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
+        DropDown("Calendar", "st calcurse", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
         ])
     )
 # Add ScratchPad toogle key
@@ -346,7 +346,7 @@ screens = [
 
                 
                 widget.Spacer(
-                    length = 470,
+                    length = 680,
                         ),
 
 
@@ -369,23 +369,23 @@ screens = [
         #                    ]
         #                ),
 
-		widget.Wttr(
-			font = "FiraCode Nerd Font",
-			fontsize = 16,
-			foreground = colors[20],
-			padding = 15,
-			location = {},
-			# Add %l for location, 
-			format = "%c%t | %w",
-			units = 'm',
-			update_interval = 10,
-			user_agent = 'Qtile',
-			mouse_callbacks = {'Button1': lazy.group['scratchpad'].dropdown_toggle('weather') },
-                        decorations =[
-                            RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
-                            ]
-			
-			),
+#		widget.Wttr(
+#			font = "FiraCode Nerd Font",
+#			fontsize = 16,
+#			foreground = colors[20],
+#			padding = 15,
+#			location = {},
+#			# Add %l for location, 
+#			format = "%c%t | %w",
+#			units = 'm',
+#			update_interval = 10,
+#			user_agent = 'Qtile',
+#			mouse_callbacks = {'Button1': lazy.group['scratchpad'].dropdown_toggle('weather') },
+#                        decorations =[
+#                            RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
+#                            ]
+#			
+#			),
 		
                 widget.Spacer(
                         length = 10,
@@ -424,7 +424,7 @@ screens = [
                     format='  {MemUsed: .1f}{mm}/{MemTotal: .1f}{mm}  ',
                     fontsize=16,
                     measure_mem='G',
- 		    mouse_callbacks = {'Button1': lazy.group['scratchpad'].dropdown_toggle('Btop')},
+ 		    mouse_callbacks = {'Button1': lazy.group['scratchpad'].dropdown_toggle('htop')},
                     decorations=[
                         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
                         ]
@@ -527,7 +527,7 @@ screens = [
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front()),
+    Click([mod], "Button2", zoom_in_window()),
 ]
 
 # dgroup list is for setting which application goes to which group

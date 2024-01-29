@@ -26,4 +26,4 @@ nm-applet &
 libinput-gestures-setup stop desktop autostart start
 
 # lxsession for theme color config
-lxsession &
+# lxsession &
