@@ -20,10 +20,14 @@ xrandr -r 60.00 &
 # protonvpn-cli fix - by installing gnome-keyring and network-manager-applet and start these commands as session begins
 gnome-keyring-daemon --start &
 nm-applet &
-
-# Enable swipe and pinch gestures for touchpad
-# libinput-gestures &
-libinput-gestures-setup stop desktop autostart start
+blueman-applet &
 
 # lxsession for theme color config
 # lxsession &
+
+# Enable Vietnamese input method
+fcitx &
+
+# Enable swipe and pinch gestures for touchpad
+# libinput-gestures &
+libinput-gestures-setup stop desktop autostart start 

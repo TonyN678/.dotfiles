@@ -33,7 +33,7 @@ style = "fg:#ffffff bg:#1c3687"
 [git_status]
 format = '[$all_status]($style)'
 style = "fg:#ffffff bg:#1c3687"
-
+disabled = true
 [git_metrics]
 format = "([+$added]($added_style))[]($added_style)"
 added_style = "fg:#ffffff bg:#1c3687"

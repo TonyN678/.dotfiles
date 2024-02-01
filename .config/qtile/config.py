@@ -145,9 +145,9 @@ groups.append(
         DropDown("term", "st",x=0.25, y=0.15, width=0.45, height=0.6),
         DropDown("calculator", "st qalc",x=0.25, y=0.15, width=0.45, height=0.6),
         DropDown("music", "st mocp", y=0.13, x=0.23, width=0.5, height=0.7),
-        DropDown("protonvpn", "st gnome-keyring-daemon --start ; st nm-applet; st protonvpn-cli connect", y=0.13, x=0.23, width=0.5, height=0.7),
+        DropDown("protonvpn", "st protonvpn-cli connect", y=0.13, x=0.23, width=0.5, height=0.7),
         # DropDown("weather", "kitty -o font_size=11 --hold curl wttr.in", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
-        DropDown("htop", "st htop", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
+        DropDown("htop", "st htop", y=0.15, x=0.25, width=0.6, height=0.77, on_focus_lost_hide=False),
         DropDown("Calendar", "st calcurse", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
         ])
     )
@@ -157,6 +157,7 @@ keys.extend([
     Key([mod], "m", lazy.group['scratchpad'].dropdown_toggle('music')),
     Key([mod], "c", lazy.group['scratchpad'].dropdown_toggle('calculator')),
     Key([mod], "v", lazy.group['scratchpad'].dropdown_toggle('protonvpn')),
+    #lazy.spawn("st gnome-keyring-daemon --start"), lazy.spawn("st nm-applet"),  
     # Key([mod], "b", lazy.group['scratchpad'].dropdown_toggle('weather')),
 ])
 
@@ -502,7 +503,10 @@ screens = [
                 ),
 
 
-                
+               widget.Spacer(
+		length = 0,	
+		),
+ 
 		widget.Systray(
 			icon_size = 20,
 			padding = 2,	
