@@ -144,7 +144,7 @@ groups.append(
     ScratchPad("scratchpad", [
         DropDown("term", "st",x=0.25, y=0.15, width=0.45, height=0.6),
         DropDown("calculator", "st qalc",x=0.25, y=0.15, width=0.45, height=0.6),
-        DropDown("music", "st mocp", y=0.13, x=0.23, width=0.5, height=0.7),
+        DropDown("music", "st mocp", y=0.13, x=0.23, width=0.5, height=0.7, on_focus_lost_hide=False),
         DropDown("protonvpn", "st protonvpn-cli connect", y=0.13, x=0.23, width=0.5, height=0.7),
         # DropDown("weather", "kitty -o font_size=11 --hold curl wttr.in", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
         DropDown("htop", "st htop", y=0.15, x=0.25, width=0.6, height=0.77, on_focus_lost_hide=False),
@@ -483,7 +483,7 @@ screens = [
                         fmt='  {} ',
                         fontsize=16,
                         scroll=True,
-			mouse_callbacks={'Button1': lazy.spawn("pavucontrol")},
+			mouse_callbacks={'Button1': lazy.spawn("pavucontrol"), 'Button3': lazy.spawn("alacritty -e cava")},
                          decorations=[
                             RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6,group=True)
                         ]
@@ -496,7 +496,7 @@ screens = [
                         fmt='{}  ',
                         fontsize=16,
                         scroll=True,
-			mouse_callbacks={'Button1': lazy.spawn("pavucontrol")},
+			mouse_callbacks={'Button1': lazy.spawn("pavucontrol"), 'Button3': lazy.spawn("alacritty -e cava")},
                          decorations=[
                             RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6,group=True)
                         ]
@@ -564,9 +564,8 @@ floating_layout = layout.Floating(
         Match(wm_class="Lxappearance"),  
         Match(wm_class="Nm-connection-editor"), 
         Match(wm_class="Grub-customizer"), 
-        Match(title="btop"), 
         Match(title="htop"), 
-        Match(title="mocicon"), 
+        Match(title="cava"), 
     ],
 	border_width=2,
 	border_focus="#ffffff",

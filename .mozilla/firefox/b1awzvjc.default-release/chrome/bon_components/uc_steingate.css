@@ -1,0 +1,118 @@
+#root {
+  --newtab-background-color-secondary: #400000 !important;
+}
+
+
+.ds-outer-wrapper-breakpoint-override main {
+  width: 80vw !important;
+  background-size: 100%;
+}
+.collapsible-section {
+  padding: 0px 25px !important;
+}
+.outer-wrapper {
+  padding: 0 !important;
+  padding-top: 10px !important;
+}
+
+/* The firefox logo and "Firefox" word, Unabled in the about:config */
+.logo-and-wordmark {
+  display: none;
+}
+
+.search-wrapper .logo-and-wordmark {
+  margin: 0 !important;
+}
+.search-wrapper {
+  padding: 0 !important;
+}
+.top-sites-list {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* The button to press for shortcuts, in this case the image in .top-site-outer */
+.top-site-button {
+  height: 600px;
+  padding-top: 0px !important;
+  border-width: 0px !important;
+  border-color: transparent !important;
+}
+
+/* The window for displaying the anime pictures */
+.top-site-outer {
+  width: 150px !important;
+  padding: 0 !important;
+  border-radius: 118;
+  display: inline-block;
+  margin: 5px !important;
+  height: 610px !important;
+  font-size: 18px !important;
+  padding: 0px !important;
+  border-width: 0px !important;
+}
+
+/* THe images */
+.top-site-outer:nth-child(1) {
+  background-image: url(../images/1.png) !important;
+  background-repeat: no-repeat;
+    background-size: cover;
+}
+.top-site-outer:nth-child(2) {
+  background-image: url(../images/2.png) !important;
+  background-repeat: no-repeat;
+    background-size: cover;
+}
+.top-site-outer:nth-child(3) {
+  background-image: url(../images/3.png) !important;
+  background-repeat: no-repeat;
+    background-size: cover;
+}
+.top-site-outer:nth-child(4) {
+  background-image: url(../images/4.png) !important;
+  background-repeat: no-repeat;
+    background-size: cover;
+}
+.top-site-outer:nth-child(5) {
+  background-image: url(../images/5.png) !important;
+  background-repeat: no-repeat;
+    background-size: cover;
+}
+.top-site-outer:nth-child(6) {
+  background-image: url(../images/6.png) !important;
+  background-repeat: no-repeat;
+    background-size: cover;
+}
+.top-site-outer:nth-child(7) {
+  background-image: url(../images/7.png) !important;
+  background-repeat: no-repeat;
+    background-size: cover;
+}
+.top-site-outer:nth-child(8) {
+  background-image: url(../images/8.png) !important;
+  background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* This is a set of elements such as the shortcut icon and its title, which will be manually edit below */
+.tile {
+  background-color: transparent !important;
+  border-width: 0px !important;
+  border-block-width: inherit;
+  border-color: transparent !important;
+  font-size: 15px !important;
+  padding-top: 420px !important;
+  color: transparent !important;
+  box-shadow: none !important; /* remove the ugly box border */
+}
+
+/* shortcut's icons */
+.top-site-icon {
+  background-color: transparent;
+  width: 50%;
+  height: 50%;
+}
+/* title of the shortcuts in the homepage */
+.title {
+  display: none;
+}
