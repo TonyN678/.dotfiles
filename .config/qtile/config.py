@@ -504,7 +504,7 @@ screens = [
 
 
                widget.Spacer(
-		length = 0,	
+		length = 5,	
 		),
  
 		widget.Systray(

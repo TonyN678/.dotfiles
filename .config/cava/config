@@ -21,8 +21,8 @@ framerate = 60
 # The number of bars (0-200). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
 bars = 0
-bar_width = 4
-bar_spacing = 1
+bar_width = 7 
+bar_spacing = 3 
 
 # Lower and higher cutoff frequencies for lowest and highest bars
 # the bandwidth of the visualizer.
@@ -114,7 +114,7 @@ style = mono
 
 # Disables or enables the so-called "Monstercat smoothing". Set to 0 to disable.
 ; monstercat = 1
-; waves = 1
+waves = 0 
 
 # Set gravity multiplier for "drop off". Higher values means bars will drop faster.
 # Accepts only non-negative values. 0.5 means half gravity, 2 means double. Set to 0 to disable "drop off".
@@ -141,8 +141,6 @@ style = mono
 
 ;background = '#191724'
 gradient = 1
-gradient_count = 4 
-gradient_color_3 = '#bb44f0'
-gradient_color_4 = '#d16aff'
-gradient_color_1 = '#03318c'
-gradient_color_2 = '#9614d0'
+gradient_count = 2 
+gradient_color_1 = '#d16aff'
+gradient_color_2 = '#03318c'

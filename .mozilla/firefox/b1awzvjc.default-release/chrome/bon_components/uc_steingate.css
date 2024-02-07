@@ -116,3 +116,8 @@
 .title {
   display: none;
 }
+
+.context-menu-button.icon {
+  margin-left: 10px;
+  inset-inline-end: 0px;
+}
