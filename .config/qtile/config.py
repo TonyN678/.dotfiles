@@ -347,7 +347,7 @@ screens = [
 
                 
                 widget.Spacer(
-                    length = 680,
+                    length = 660,
                         ),
 
 

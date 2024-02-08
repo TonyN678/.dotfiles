@@ -3,7 +3,7 @@
 </div>
 
 <!-- <a href="#"><img align="center" src="./Assets/preview2.png" alt="Preview Image 1"></a> -->
-<a href="#"><img align="center" src="./Assets/preview1.png" alt="Preview Image 2"></a>
+<a href="#"><img align="center" src="./Assets/preview1.png" alt="Preview Image 1"></a>
 
 
 <div align="left">
