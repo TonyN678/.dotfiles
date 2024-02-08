@@ -3,6 +3,7 @@
 </div>
 
 <a href="#"><img align="center" src="./Assets/preview1.png" alt="Preview Image 1"></a>
+<p><p>
 <a href="#"><img align="center" src="./Assets/preview2.png" alt="Preview Image 2"></a>
 
 
@@ -27,8 +28,8 @@
 
 #### Other Cool Programs
 <ul>
-<li>System Viewer: neofetch</li>
-<li>PDF Viewer: llpp</li>
+<li>System Viewer: pfetch</li>
+<li>PDF Viewer: zathura</li>
 <li>Music Player: moc (Music On Console)</li>
 <li>Music Visualiser: cava</li>
 <li>Firefox Theme: Copied heavily from <a href="https://github.com/RoyalHeart">@RoyalHeart</a></li>
