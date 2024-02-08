@@ -6,10 +6,13 @@
 <p><p>
 <a href="#"><img align="center" src="./Assets/preview2.png" alt="Preview Image 2"></a>
 
+<div align="left">
+<h2>Introduction</h2>
+<p>I started my ricing journey during my year 11's long summer holidays, finally decided to learn  more about the linux system, which has led me to exploring awesome linux's rices and also craft my very unique own rice. ( I use arch btw :> )</p>
+</div>
 
 <div align="left">
 <h2>Details</h2>
-<p>I started my ricing journey during my year 11's long summer holidays, finally decided to learn  more about the linux system, which has led me to exploring awesome linux's rices and also craft my very unique own rice. ( I use arch btw :> )</p>
 </div>
 
 #### Core Programs
@@ -42,7 +45,8 @@
 </ul>
 
 <div align="left">
-<h2>Tribute</h2>
-
+<h2>Final Words</h2>
+<p>As the set-up is my daily driver for school and personal use, this repo will be maintained and updated regularly based on my own interest. The firefox customisation was mainly from <a href="https://github.com/RoyalHeart">@RoyalHeart</a> and <a href="https://github.com/Godiesc">@Godiesc</a>, therefore the css file in my repository contains some changes to the original file as to fit my taste of a perfect firefox homepage. </p>
+<p>Qtile window manager is great for beginners to dive in the world of ricing linux since it's extremely hackable with both floating and tiling window mode. Definitely not a watse of time :></p>
 </div>
 
