@@ -53,11 +53,6 @@
 }
 
 /* THe images */
-.top-site-outer:nth-child(1) {
-  background-image: url(../images/1.png) !important;
-  background-repeat: no-repeat;
-    background-size: cover;
-}
 .top-site-outer:nth-child(2) {
   background-image: url(../images/2.png) !important;
   background-repeat: no-repeat;
