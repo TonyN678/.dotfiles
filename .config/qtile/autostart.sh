@@ -7,7 +7,7 @@ feh --bg-scale ~/Wallpapers/Aesthetic2.png &
 picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 -b -f &
 
 # enable automounting disk
-# udiskie & 
+udiskie & 
 
 # enable the mouse in touchpad to function: tapping, drag, scroll
 xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Tapping Enabled" 1 &
