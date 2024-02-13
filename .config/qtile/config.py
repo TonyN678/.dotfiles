@@ -531,7 +531,7 @@ screens = [
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
-    Click([mod], "Button2", zoom_in_window()),
+    Click([mod], "Button2", lazy.window.toggle_floating()),
 ]
 
 # dgroup list is for setting which application goes to which group
