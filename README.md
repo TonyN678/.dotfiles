@@ -8,7 +8,7 @@
 
 <div align="left">
 <h2>Introduction</h2>
-<p>I started my ricing journey during my year 11's long summer holidays, finally decided to learn  more about the linux system, which has led me to exploring awesome linux's rices and also craft my very unique own rice. ( I use arch btw :> )</p>
+<p>I started my ricing journey during year 10, finally decided to learn more about the linux system, to explore awesome unix's rices on <a href="https://www.reddit.com/r/unixporn">r/unixporn</a> and also craft my own tasty rice. ( I use arch btw :> )</p>
 </div>
 
 <div align="left">
