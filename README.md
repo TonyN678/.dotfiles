@@ -19,14 +19,16 @@
 <ul>  
 <li><b>Operating System:</b> Arch Linux</li>
 <li><b>Window Manager:</b> Qtile</li>
-<li>Display Manager: None (display manager is bloated)</li>
-<li>Terminal Emulator: St</li>
-<li>Prompt Customisation: Starship</li>
-<li>Search tool: Rofi (along with aur packages rofi-emoji and rofi-calc)</li>
-<li>Compositor: Picom (simpleanims's fork with animations)</li>
-<li>Wallpaper Setter: Feh</li>
-<li>Notfication Daemon: Dunst</li>
-<li>Text Editor: Neovim</li>
+<li><b>Display Manager:</b> None (display manager is bloated)</li>
+<li><b>Terminal Emulator:</b> St</li>
+<li><b>Prompt Customisation:</b> Starship</li>
+<li><b>Search tool:</b> Rofi (along with aur packages rofi-emoji and rofi-calc)</li>
+<li><b>Compositor:</b> Picom (simpleanims's fork with animations)</li>
+<li><b>Wallpaper Setter:</b> Feh</li>
+<li><b>Notfication Daemon:</b> Dunst</li>
+<li><b>Text Editor:</b> Neovim</li>
+<li><b>Text/Icon Fonts:</b> FiraCode Nerd Font/Candy-Icons</li>
+<li><b>GTK Theme:</b> Sweet-Dark</li>
 </ul>
 
 #### Other Cool Programs
@@ -47,6 +49,11 @@
 <div align="left">
 <h2>Final Words</h2>
 <p>As the set-up is my daily driver for school and personal use, this repo will be maintained and updated regularly based on my own interest. The firefox customisation was mainly from <a href="https://github.com/RoyalHeart">@RoyalHeart</a> and <a href="https://github.com/Godiesc">@Godiesc</a>, therefore the css file in my repository contains some changes to the original file as to fit my taste of a perfect firefox homepage. </p>
-<p>Qtile window manager is great for beginners to dive in the world of ricing linux since it's extremely hackable with both floating and tiling window mode. Definitely not a watse of time :></p>
+<p>Qtile window manager is great for beginners to dive in the world of ricing linux since it's extremely hackable with both floating and tiling window mode. Definitely not a watse of time if you value your experience (Windows and MacOS are bloated)</p>
 </div>
 
+<div align="left">
+<h2>Finally Final Words</h2>
+<p>Probably I am gonna switch to hyprland for its nice-looking set-up and add to this repo, hoping it does not crash for my Nvidia graphic card ;)</p>
+<p>I am working on an install script for my set-up so see ya :))</p>
+</div>

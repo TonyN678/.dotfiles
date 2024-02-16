@@ -4,7 +4,7 @@ configuration {
 	click-to-exit: 	true;
     	modi: ["run", "window", "drun", "filebrowser" , "calc", "emoji"];            
         show-icons: true;        
-        icon-theme: "Papirus"; 
+        icon-theme: "Candy-Icons"; 
      /*---------- Drun settings ----------*/                                      
         drun-categories: "";                                                         
         drun-match-fields: "name,generic,exec,categories,keywords";                  

@@ -1,4 +1,5 @@
 #!/bin/sh
+xrandr --output HDMI-1 --mode 1920x1080 --rate 60 --brightness 0.7 &
 
 # preserve the wallpaper 
 feh --bg-scale ~/Wallpapers/Aesthetic2.png &
@@ -28,6 +29,8 @@ blueman-applet &
 # Enable Vietnamese input method
 fcitx &
 
+# Disable the screen timeout and display power management
+xset s off -dpms &
+
 # Enable swipe and pinch gestures for touchpad
-# libinput-gestures &
 libinput-gestures-setup stop desktop autostart start 
