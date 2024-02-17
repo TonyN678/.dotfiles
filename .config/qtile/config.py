@@ -205,7 +205,7 @@ Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focu
 
 def init_layout_theme():
 	return {
-		"border_focus": '#fdfdff',
+		"border_focus": '#b3b1f6',
 		 "border_normal": '#00000000',
 		}
 
@@ -213,7 +213,7 @@ layout_theme = init_layout_theme()
 
 layouts = [
     layout.MonadTall(**layout_theme, allign=0, border_width=0, change_size=10, margin=10, single_margin=0, single_border_width=0),
-    layout.Columns(**layout_theme, border_on_single=False, border_width=2, margin=8, margin_on_single=8),
+    layout.Columns(**layout_theme, border_on_single=True, border_width=2, margin=8, margin_on_single=5),
     # layout.Spiral(**layout_theme),
     layout.Max(),
 ]
@@ -348,7 +348,7 @@ screens = [
 
                 
                 widget.Spacer(
-                    length = 690,
+                    length = 710,
                         ),
 
 
@@ -423,7 +423,7 @@ screens = [
                     font="FiraCode Nerd Font Propo",
                     foreground=colors[20],
                     padding=0,
-                    format='  {MemUsed: .1f}{mm}/{MemTotal: .1f}{mm}  ',
+                    format='  {MemUsed: .1f}{mm}/{MemTotal: .0f}{mm}  ',
                     fontsize=16,
                     measure_mem='G',
  		    mouse_callbacks = {'Button1': lazy.group['scratchpad'].dropdown_toggle('htop')},
@@ -509,7 +509,7 @@ screens = [
 		),
  
 		widget.Systray(
-			icon_size = 20,
+			icon_size = 25,
 			padding = 2,	
 		),
 
@@ -517,7 +517,7 @@ screens = [
             ],
             45,
             # opacity=1.0,
-            # background=["#4c566a", "#4c566a"],
+            # background=["#50586d", "#50586d"],
             background=["#00000000"],
            # north east south west
 	    #  margin = [5,12,0,12],
