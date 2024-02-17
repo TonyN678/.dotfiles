@@ -5,7 +5,8 @@ xrandr --output HDMI-1 --mode 1920x1080 --rate 60 --brightness 0.7 &
 feh --bg-scale ~/Wallpapers/Aesthetic2.png &
 
 # apply picom settings when the session starts
-picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 -b -f &
+# picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 -b -f &
+picom &
 
 # enable automounting disk
 udiskie & 
@@ -27,7 +28,7 @@ blueman-applet &
 # lxsession &
 
 # Enable Vietnamese input method
-fcitx &
+# fcitx &
 
 # Disable the screen timeout and display power management
 xset s off -dpms &
