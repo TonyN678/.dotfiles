@@ -8,7 +8,7 @@ from qtile_extras.widget.decorations import RectDecoration
 import os, subprocess
 from libqtile.command import lazy
 
-
+# Run the programs in autostart.sh once after start-up
 @hook.subscribe.startup_once
 def autostart_once():
 	home = os.path.expanduser('~/.config/qtile/autostart.sh')
@@ -95,7 +95,9 @@ keys = [
     Key([], "XF86AudioLowerVolume", lazy.spawn("/home/tien/scripts/changevolume down")),
     # Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset Master 1%+")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("/home/tien/scripts/changevolume up")),
-
+	
+    # For taking screenshot with selected area with scrot
+    Key([mod], "p", lazy.spawn("/usr/bin/scrot --select")),
 ]
 
 """"""""""""""""""
@@ -146,7 +148,6 @@ groups.append(
         DropDown("calculator", "st qalc",x=0.25, y=0.15, width=0.45, height=0.6),
         DropDown("music", "st mocp", y=0.13, x=0.23, width=0.5, height=0.7, on_focus_lost_hide=False),
         DropDown("protonvpn", "st protonvpn-cli connect", y=0.13, x=0.23, width=0.5, height=0.7),
-        # DropDown("weather", "kitty -o font_size=11 --hold curl wttr.in", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
         DropDown("htop", "st htop", y=0.15, x=0.25, width=0.5, height=0.70, on_focus_lost_hide=False),
         DropDown("Visualiser", "alacritty -e cava", y=0.15, x=0.25, width=0.5, height=0.70, on_focus_lost_hide=False),
         DropDown("Calendar", "st calcurse", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
@@ -182,6 +183,7 @@ def zoom_in_window(window):
     lazy.window.toggle_floating()
     window.cmd_center()
     window.cmd_set_size_floating(790, 600)
+
 keys.extend([
 Key([mod, "control" ], "h", resize_floating_window(width=10), desc='increase width by 10'), 
 Key([mod, "control" ], "l", resize_floating_window(width=-10), desc='decrease width by 10'), 
@@ -213,7 +215,7 @@ layout_theme = init_layout_theme()
 
 layouts = [
     layout.MonadTall(**layout_theme, allign=0, border_width=0, change_size=10, margin=10, single_margin=0, single_border_width=0),
-    layout.Columns(**layout_theme, border_on_single=True, border_width=2, margin=8, margin_on_single=5),
+    layout.Columns(**layout_theme, border_on_single=True, border_width=2, margin=8, margin_on_single=10),
     # layout.Spiral(**layout_theme),
     layout.Max(),
 ]
@@ -256,7 +258,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.Spacer(
-                    length = 10
+                    length = 20
                     ),
 
                # widget.TextBox(
@@ -281,17 +283,13 @@ screens = [
                 #        ]
                 #        ),
 
-                widget.Spacer(
-                    length = 8
-                    ),
-                
                 widget.GroupBox( 
                     font="FireCode Nerd Font Propo",
-                    active = colors[7],
+                    active = colors[12],
+                    this_current_screen_border = colors[7],
                     inactive = colors[19],
                     foreground = colors[1],
                     highlight_method = "text",
-                    this_current_screen_border = colors[12],
                     borderwidth = 0,
                     center_aligned = False,
                     disable_drag = False,
@@ -337,18 +335,17 @@ screens = [
                     length = 2
                     ),
 
-		widget.CurrentLayoutIcon(
-			foreground=colors[20],
-			scale= 0.5,
-			fmt = " {} ",
-			padding= 15,
-			decorations = [RectDecoration(colour=colors[0], extra_width=20,radius=13, filled=True, padding_y=6)]
-			
-		   ),
+#		widget.CurrentLayoutIcon(
+#			foreground=colors[20],
+#			scale= 0.45,
+#			fmt = " {} ",
+#			padding= 15,
+#			decorations = [RectDecoration(colour=colors[0], extra_width=20,radius=13, filled=True, padding_y=6)]
+#			
+#		   ),
 
-                
                 widget.Spacer(
-                    length = 710,
+                    length = 750,
                         ),
 
 
@@ -423,7 +420,7 @@ screens = [
                     font="FiraCode Nerd Font Propo",
                     foreground=colors[20],
                     padding=0,
-                    format='  {MemUsed: .1f}{mm}/{MemTotal: .0f}{mm}  ',
+                    format='  {MemUsed: .1f}{mm} /{MemTotal: .0f}{mm}  ',
                     fontsize=16,
                     measure_mem='G',
  		    mouse_callbacks = {'Button1': lazy.group['scratchpad'].dropdown_toggle('htop')},
@@ -445,8 +442,7 @@ screens = [
                     padding=0,
                     # tag_sensor="CPU",
                     threshold=60,
-                    format = '  {temp:.1f}{unit} ',
-                    # mouse_callbacks={"Button1": openHtop},
+                    format = '  {temp:.0f}{unit} ',
                     decorations=[
                         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
                         ]
@@ -521,7 +517,7 @@ screens = [
             background=["#00000000"],
            # north east south west
 	    #  margin = [5,12,0,12],
-	     margin = [0,0,0,0],
+	     margin = [3,0,-5,0],
             # border_width=[3,13,3,13],  # Draw top and bottom borders
             # border_color=["f0f0ef", "bae1ff", "f0f0ef", "bae1ff"]  # Borders are magenta
         )

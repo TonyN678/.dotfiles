@@ -7,7 +7,7 @@ fake-transparency: true;
 // Colors, modify them to your needs!
 * {
     window-bg-color:        #a265e500;
-    title-text-color:       #000000;
+    title-text-color:       #ffffff;
     selected-bg-color:      #a265e9;
     unselected-bg-color:    transparent;
     selected-text-color:   #fffff2; 
