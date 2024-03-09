@@ -146,7 +146,7 @@ groups.append(
     ScratchPad("scratchpad", [
         DropDown("term", "st",x=0.25, y=0.15, width=0.45, height=0.6),
         DropDown("calculator", "st qalc",x=0.25, y=0.15, width=0.45, height=0.6),
-        DropDown("music", "st mocp", y=0.13, x=0.23, width=0.5, height=0.7, on_focus_lost_hide=False),
+        DropDown("music", "st mocp", y=0.13, x=0.23, width=0.5, height=0.7, on_focus_lost_hide=True),
         DropDown("protonvpn", "st protonvpn-cli connect", y=0.13, x=0.23, width=0.5, height=0.7),
         DropDown("htop", "st htop", y=0.15, x=0.25, width=0.5, height=0.70, on_focus_lost_hide=False),
         DropDown("Visualiser", "alacritty -e cava", y=0.15, x=0.25, width=0.5, height=0.70, on_focus_lost_hide=False),
@@ -506,7 +506,7 @@ screens = [
  
 		widget.Systray(
 			icon_size = 25,
-			padding = 2,	
+			padding = 2,
 		),
 
 
