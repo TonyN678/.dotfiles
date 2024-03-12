@@ -1,0 +1,47 @@
+import = [
+#"~/.config/alacritty/themes/tokyo-night.toml"
+"~/.config/alacritty/themes/one_dark.toml"
+
+		]
+
+[colors.primary]
+background = "#181818"
+
+[window]
+decorations = "full"
+opacity = 0.70
+#startup_mode = "Maximized"
+#padding = { x = 4, y = 28 }
+
+[env]
+TERM = "alacritty"
+
+[bell]
+#color = "#00000000"
+#duration = 32
+
+[font]
+size = 8 
+#offset = { x = 1, y = 1 }
+normal      = { family = "FiraCode Nerd Font", style = "Regular" }
+bold        = { family = "FiraCode Nerd Font", style = "Bold" }
+italic      = { family = "FiraCode Nerd Font", style = "Italic" }
+bold_italic = { family = "FiraCode Nerd Font", style = "Bold Italic" }
+
+[selection]
+save_to_clipboard = true
+
+[scrolling]
+multiplier = 1
+
+[cursor]
+blink_interval = 750
+
+[keyboard]
+bindings = [
+	{ chars = "\u001F", key = "Slash", mods = "Control" },
+	{ chars = "\u001F", key = "Slash", mods = "Control|Shift" },
+	{ chars = "\u0000", key = "Space", mods = "Control" },
+	{ action = "Copy", mods = "Control|Shift", key = "C" },
+	{ action = "Paste", mods = "Control|Shift", key = "V" },
+]
