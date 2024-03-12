@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# This is a script for changing audio output device through rofi
+# This return a list of audio output devices
+device_name_4_human=$(pactl list sinks | grep -ie "description:"|cut -d: -f2|sort)
+
+# This return the chosen device's name that readable for human
+rofi_theme_path=~/.config/rofi/normaltheme.rasi
+chosen_output=$(echo -e "$device_name_4_human" | rofi -dmenu -p "Outputs:" -theme "$rofi_theme_path" )
+
+# Return a boolean of either 1 or 0; 1: you chose local output, 2: you chose external output like bluetooth
+chosen_name=$( echo "$chosen_output" | grep -c "Analog Stereo" )
+
+# Return a list of device's name that readable for machine
+devices_real_name=$(pactl list sinks | grep -ie "Name: " | cut -d: -f2)
+
+# if you chose local output
+if [ "$chosen_name" -eq 1 ]; then
+	device_real_name=$( echo "$devices_real_name" | grep "analog-stereo" )
+	pactl set-default-sink $device_real_name
+        notify-send "Audio Output" "Changed to laptop's audio" -t 2000 -u low  
+
+# if you chose bluetooth output
+else
+	device_real_name=$( echo "$devices_real_name" | grep "bluez_output" )
+	pactl set-default-sink $device_real_name
+        notify-send "Audio Output" "Changed to bluetooth's audio" -t 2000 -u low   
+fi

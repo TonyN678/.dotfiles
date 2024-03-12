@@ -1,4 +1,4 @@
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias activate="source env/bin/activate"
 alias cbonsai="cbonsai -i -l -b 1 -m Hello"
 alias weather="curl wttr.in/"

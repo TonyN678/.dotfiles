@@ -19,7 +19,7 @@ def autostart_once():
 mod = "mod4" # window key
 alt_key = "mod1"
 
-terminal = "st"
+terminal = "alacritty"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -144,13 +144,11 @@ for i in groups:
 # Add a ScratchPad Group With a terminal dropdown
 groups.append(
     ScratchPad("scratchpad", [
-        DropDown("term", "st",x=0.25, y=0.15, width=0.45, height=0.6),
-        DropDown("calculator", "st qalc",x=0.25, y=0.15, width=0.45, height=0.6),
-        DropDown("music", "st mocp", y=0.13, x=0.23, width=0.5, height=0.7, on_focus_lost_hide=True),
-        DropDown("protonvpn", "st protonvpn-cli connect", y=0.13, x=0.23, width=0.5, height=0.7),
-        DropDown("htop", "st htop", y=0.15, x=0.25, width=0.5, height=0.70, on_focus_lost_hide=False),
-        DropDown("Visualiser", "alacritty -e cava", y=0.15, x=0.25, width=0.5, height=0.70, on_focus_lost_hide=False),
-        DropDown("Calendar", "st calcurse", y=0.11, x=0.20, width=0.6, height=0.77, on_focus_lost_hide=False),
+        DropDown("term", terminal,x=0.25, y=0.15, width=0.45, height=0.6),
+        DropDown("music", f"{terminal} -e mocp", y=0.13, x=0.23, width=0.5, height=0.7, on_focus_lost_hide=True),
+        DropDown("protonvpn", f"{terminal} -e protonvpn-cli connect", y=0.13, x=0.23, width=0.5, height=0.7),
+        #DropDown("htop", "st htop", y=0.15, x=0.25, width=0.5, height=0.70, on_focus_lost_hide=False),
+        DropDown("Visualiser", f"{terminal} -e cava", y=0.15, x=0.25, width=0.5, height=0.70, on_focus_lost_hide=False),
         ])
     )
 # Add ScratchPad toogle key
@@ -460,8 +458,8 @@ screens = [
 		   
    	            # if the widget stop working someday, check the name again at /sys/class/backlight/
 
-                    #backlight_name='amdgpu_bl0',
-                    backlight_name='amdgpu_bl1',
+                    backlight_name='amdgpu_bl0',
+                    #backlight_name='amdgpu_bl1',
                     decorations=[
                         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
                         ]
