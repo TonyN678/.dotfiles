@@ -21,6 +21,7 @@ alt_key = "mod1"
 
 terminal = "alacritty"
 
+# To know the key names, use "xev" and press any key, that key name will appear on the terminal, usually the name in string in bracket
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -91,13 +92,19 @@ keys = [
     # Keys to increase/decrease audio volume
     # Key([], "XF86AudioMute", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle")),
     Key([], "XF86AudioMute", lazy.spawn("/home/tien/scripts/changevolume mute")),
+    Key(["control", alt_key], "slash", lazy.spawn("/home/tien/scripts/changevolume mute")),
     # Key([], "XF86AudioLowerVolume", lazy.spawn("amixer sset Master 1%-")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("/home/tien/scripts/changevolume down")),
+    Key(["control", alt_key], "down", lazy.spawn("/home/tien/scripts/changevolume down")),
     # Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer sset Master 1%+")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("/home/tien/scripts/changevolume up")),
+    Key(["control", alt_key], "up", lazy.spawn("/home/tien/scripts/changevolume up")),
 	
     # For taking screenshot with selected area with scrot
     Key([mod], "p", lazy.spawn("/usr/bin/scrot --select")),
+    # For changing audio output device
+    Key([mod], "a", lazy.spawn("/home/tien/scripts/audio-output")),
+
 ]
 
 """"""""""""""""""
@@ -147,7 +154,6 @@ groups.append(
         DropDown("term", terminal,x=0.25, y=0.15, width=0.45, height=0.6),
         DropDown("music", f"{terminal} -e mocp", y=0.13, x=0.23, width=0.5, height=0.7, on_focus_lost_hide=True),
         DropDown("protonvpn", f"{terminal} -e protonvpn-cli connect", y=0.13, x=0.23, width=0.5, height=0.7),
-        #DropDown("htop", "st htop", y=0.15, x=0.25, width=0.5, height=0.70, on_focus_lost_hide=False),
         DropDown("Visualiser", f"{terminal} -e cava", y=0.15, x=0.25, width=0.5, height=0.70, on_focus_lost_hide=False),
         ])
     )
@@ -155,7 +161,6 @@ groups.append(
 keys.extend([
     Key([mod, "shift"], "Return", lazy.group['scratchpad'].dropdown_toggle('term')),
     Key([mod], "m", lazy.group['scratchpad'].dropdown_toggle('music')),
-    Key([mod], "c", lazy.group['scratchpad'].dropdown_toggle('calculator')),
     Key([mod], "v", lazy.group['scratchpad'].dropdown_toggle('protonvpn')),
     #lazy.spawn("st gnome-keyring-daemon --start"), lazy.spawn("st nm-applet"),  
     # Key([mod], "b", lazy.group['scratchpad'].dropdown_toggle('weather')),

@@ -35,7 +35,7 @@ mute)
 	pamixer -t
 	# If the command return a boolean value called True then do the following
 	if eval "$(pamixer --get-mute)"; then
-		dunstify -a "changevolume" -t 2000 -r 9993 -u low -i "volume-mute"  "Volume currently muted"
+		dunstify "It's so quiet" "Volume currently muted" -a "changevolume" -t 2000 -r 9993 -u low -i "volume-mute"  
 	else
 		pamixer -u
 		volume_amute=$(pamixer --get-volume)
