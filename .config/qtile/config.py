@@ -100,6 +100,11 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn("/home/tien/scripts/changevolume up")),
     Key(["control", alt_key], "up", lazy.spawn("/home/tien/scripts/changevolume up")),
 	
+    Key([], "XF86AudioPause", lazy.spawn("/usr/bin/mocp -G")),
+    Key([], "XF86AudioPlay", lazy.spawn("/usr/bin/mocp -G")),
+    Key([], "XF86AudioNext", lazy.spawn("/usr/bin/mocp -f")),
+    Key([], "XF86AudioPrev", lazy.spawn("/usr/bin/mocp -r")),
+    
     # For taking screenshot with selected area with scrot
     Key([mod], "p", lazy.spawn("/usr/bin/scrot --select")),
     # For changing audio output device
