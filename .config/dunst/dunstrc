@@ -214,10 +214,10 @@
     min_icon_size = 32
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 50
+    max_icon_size = 70
 
     # Paths to default icons (only neccesary when not using recursive icon lookup)
-    icon_path = /home/tien/.local/share/icons/dunsticons/
+    icon_path = /home/tien/.config/dunst/icons/
 
     ### History ###
 
