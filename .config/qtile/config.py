@@ -450,7 +450,7 @@ screens = [
                     padding=0,
                     # tag_sensor="CPU",
                     threshold=60,
-                    format = '  {temp:.0f}{unit} ',
+                    format = '   {temp:.0f}{unit} ',
                     decorations=[
                         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
                         ]

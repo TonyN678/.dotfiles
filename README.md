@@ -8,7 +8,7 @@
 
 <div align="left">
 <h2>Introduction</h2>
-<p>I started my ricing journey during year 10, finally decided to learn more about the linux system, to explore awesome unix's rices on <a href="https://www.reddit.com/r/unixporn">r/unixporn</a> and also craft my own tasty rice. ( I use arch btw :> )</p>
+<p>I started my ricing journey in December, 2023; finally decided to learn more about the linux system, to explore awesome unix's rices on <a href="https://www.reddit.com/r/unixporn">r/unixporn</a> and also craft my own tasty rice. ( I use arch btw :> )</p>
 </div>
 
 <div align="left">
@@ -20,7 +20,7 @@
 <li><b>Operating System:</b> Arch Linux</li>
 <li><b>Window Manager:</b> Qtile</li>
 <li><b>Display Manager:</b> None (display manager is bloated)</li>
-<li><b>Terminal Emulator:</b> St</li>
+<li><b>Terminal Emulator:</b> Alacritty</li>
 <li><b>Prompt Customisation:</b> Starship</li>
 <li><b>Search tool:</b> Rofi (along with aur packages rofi-emoji and rofi-calc)</li>
 <li><b>Compositor:</b> Picom (simpleanims's fork with animations)</li>
@@ -42,8 +42,8 @@
 <li>Network Manager: NetworkManager</li>
 <li>VPN Service: protonvpn-cli</li>
 <li>Sound Daemon: pipewire (more convenient than pulseaudio)</li>
-<li>Bluetooth Daemon: bluetoothctl</li>
-<li>Brightness Daemon: birghtnessctl</li>
+<li>Bluetooth Tool: bluetoothctl</li>
+<li>Brightness Tool: birghtnessctl</li>
 </ul>
 
 <div align="left">
