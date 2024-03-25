@@ -77,7 +77,7 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     # uncomment to use qtile own search menu
     # Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod], "r", lazy.spawn("rofi -theme ~/.config/rofi/normaltheme.rasi -show drun")),
+    Key([mod], "r", lazy.spawn("rofi -theme ~/.config/rofi/themes/style-2.rasi -show drun")),
     
     Key([mod], "q", lazy.spawn("./.config/rofi/script/powermenu")),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
