@@ -516,6 +516,14 @@ screens = [
 			icon_size = 25,
 			padding = 2,
 		),
+        
+#        widget.StatusNotifier(
+#			icon_size = 15,
+#			padding = 2,
+#            decorations=[
+#                        RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6,group=False)
+#                    ]
+#        ),
 
 
             ],
