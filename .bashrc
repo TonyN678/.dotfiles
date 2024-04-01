@@ -5,5 +5,6 @@ alias weather="curl wttr.in/"
 alias vpn="protonvpn-cli c -f"
 alias monitor="xrandr --output HDMI-1 --mode 1920x1080 --rate 60 --brightness 0.7"
 alias offvpn="nmcli con down pvpn-ipv6leak-protection"
+alias fetch="clear; echo ""; neofetch"
 
 eval "$(starship init bash)"

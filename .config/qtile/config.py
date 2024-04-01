@@ -222,10 +222,10 @@ def init_layout_theme():
 layout_theme = init_layout_theme()
 
 layouts = [
-    layout.MonadTall(**layout_theme, allign=0, border_width=0, change_size=10, margin=10, single_margin=0, single_border_width=0),
-    layout.Columns(**layout_theme, border_on_single=True, border_width=2, margin=8, margin_on_single=10),
-    # layout.Spiral(**layout_theme),
-    layout.Max(),
+    layout.MonadTall(**layout_theme, allign=0, border_width=2, change_size=10, margin=8, single_margin=10, single_border_width=0),
+    layout.Columns(**layout_theme,allign=0, border_on_single=True, border_width=2, single_border_width=2,  margin=8, margin_on_single=10),
+    layout.Zoomy(**layout_theme)
+    #layout.Max(),
 ]
 
 """"""""""""""""""
@@ -528,13 +528,11 @@ screens = [
 
             ],
             45,
-            # opacity=1.0,
-            # background=["#50586d", "#50586d"],
+            opacity=1.0,
             background=["#00000000"],
-           # north east south west
-	    #  margin = [5,12,0,12],
-	     margin = [3,0,-5,0],
-            # border_width=[3,13,3,13],  # Draw top and bottom borders
+            # north east south west
+	        margin = [0,0,0,0],
+            border_width=[0,0,0,0],  # Draw top and bottom borders
             # border_color=["f0f0ef", "bae1ff", "f0f0ef", "bae1ff"]  # Borders are magenta
         )
         
