@@ -531,7 +531,7 @@ screens = [
             opacity=1.0,
             background=["#00000000"],
             # north east south west
-	        margin = [0,0,0,0],
+	        margin = [0,0,-7,0],
             border_width=[0,0,0,0],  # Draw top and bottom borders
             # border_color=["f0f0ef", "bae1ff", "f0f0ef", "bae1ff"]  # Borders are magenta
         )

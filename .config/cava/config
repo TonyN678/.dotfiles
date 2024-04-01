@@ -143,4 +143,5 @@ waves = 0
 gradient = 1
 gradient_count = 2 
 gradient_color_1 = '#d16aff'
-gradient_color_2 = '#03318c'
+gradient_color_2 = '#fdc0dc'
+#gradient_color_2 = '#03318c'
