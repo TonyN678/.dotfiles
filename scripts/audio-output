@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Written by Tien Nguyen 
 
 # This is a script for changing audio output device through rofi
 # This return a list of audio output devices
@@ -15,10 +16,14 @@ chosen_name_lo=$( echo "$chosen_output" | grep -c "Analog Stereo" )
 devices_real_name=$(pactl list sinks | grep -ie "Name: " | cut -d: -f2)
 
 # if you chose local output
-if [ "$chosen_name_lo" -eq 1 ] ; then
+if [ "$chosen_name_lo" -eq 1 ] && [ -n "$chosen_output" ]; then
 	device_real_name=$( echo "$devices_real_name" | grep "analog-stereo" )
 	pactl set-default-sink $device_real_name
         notify-send "Audio Output" "Changed to laptop's audio" -t 2000 -u low  
+
+# if press ESC, the program exits
+elif [ -z "$chosen_output" ]; then
+	exit 1
 
 # if you chose bluetooth output
 else
