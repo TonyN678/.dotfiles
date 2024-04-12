@@ -212,7 +212,7 @@ layout_theme = init_layout_theme()
 
 layouts = [
     layout.MonadTall(**layout_theme, allign=0, border_width=2, change_size=10, margin=8, single_margin=10, single_border_width=0),
-    layout.Columns(**layout_theme,allign=0, border_on_single=True, border_width=2, single_border_width=1,  margin=8, margin_on_single=10),
+    layout.Columns(**layout_theme,allign=0, border_on_single=True, border_width=3, single_border_width=3,  margin=8, margin_on_single=10),
 ]
 
 """"""""""""""""""

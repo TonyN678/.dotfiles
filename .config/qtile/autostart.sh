@@ -20,8 +20,11 @@ xinput set-prop "ELAN1203:00 04F3:307A Touchpad" "libinput Natural Scrolling Ena
 xrandr -r 60.00 & 
 
 # protonvpn-cli fix - by installing gnome-keyring and network-manager-applet and start these commands as session begins
+# in gnome-keyring
 gnome-keyring-daemon --start &
+# in network-manager-applet
 nm-applet &
+# in blueman
 blueman-applet &
 
 # lxsession for theme color config
