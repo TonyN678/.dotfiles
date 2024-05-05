@@ -113,7 +113,8 @@ groups = []
 # Group's info
 group_names = ["1", "2", "3", "4",]
 group_labels = ["󰏃","󰏃","󰏃","󰏃"] 
-group_layouts = [ "columns", "columns", "columns", "columns"]
+#group_layouts = [ "columns", "columns", "columns", "columns"]
+group_layouts = [ "monadtalls", "monadtalls", "columns", "columns"]
 
 # Create Group objects with attributes and paste to the list called groups
 for i in range(len(group_names)):
@@ -215,7 +216,7 @@ def init_layout_theme():
 layout_theme = init_layout_theme()
 
 layouts = [
-    layout.MonadTall(**layout_theme, allign=0, border_width=2, change_size=10, margin=8, single_margin=10, single_border_width=0),
+    layout.MonadTall(**layout_theme, allign=0, border_width=2, change_size=10, margin=8, single_margin=10, single_border_width=2),
     layout.Columns(**layout_theme,allign=0, border_on_single=True, border_width=3, single_border_width=3,  margin=8, margin_on_single=10),
 ]
 
@@ -246,7 +247,8 @@ def init_colors():
         ["#ecb4e2", "#ecb4e2"], #17 pink bubblegum
         ["#afeeff", "#afeeff"], #18 light cyan
 	    ["#6f7787", "#6f7787"], #19 light grey
-        ["#CAA9E0", "#CAA9E0"], #20 purple-pink"
+        #["#CAA9E0", "#CAA9E0"], #20 purple-pink"
+        ["#81a1c1", "#81a1c1"],  # 6 blue
     ]
 
 colors = init_colors()
