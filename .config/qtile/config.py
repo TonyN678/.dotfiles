@@ -5,7 +5,7 @@ from libqtile.scripts.main import VERSION
 from libqtile.utils import guess_terminal
 from qtile_extras import widget
 from qtile_extras.widget.decorations import RectDecoration
-from libqtile.command import lazy
+#from libqtile.command import lazy
 import os, subprocess
 
 

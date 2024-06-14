@@ -2,7 +2,7 @@
 
 -- Set leader key
 vim.g.mapleader = " "
-
+vim.opt.termguicolors = true
 
 -- ----------------------
 -- LAZY PACKAGE MANAGER  |

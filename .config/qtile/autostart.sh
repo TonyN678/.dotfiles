@@ -1,5 +1,5 @@
 #!/bin/sh
-xrandr --output HDMI-1 --mode 1920x1080 --rate 60 --brightness 0.7 &
+xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60 --brightness 0.7 &
 
 # preserve the wallpaper 
 feh --bg-scale ~/Assets/wallpapers/SunsetDreamy.png &
