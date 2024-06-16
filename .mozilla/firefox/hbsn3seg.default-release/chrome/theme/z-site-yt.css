@@ -57,7 +57,7 @@ html[dark] .sbsb_a {
 /*--notifications badge color now yellow--*/
 
 .yt-spec-icon-badge-shape--type-notification .yt-spec-icon-badge-shape__badge {
-    background-color: #fffd80 !important;
+    background-color: #9c96EE !important;
     color: #2b2b2b !important;
 } .yt-spec-icon-badge-shape--style-overlay .yt-spec-icon-badge-shape__badge {
     border: 0px solid rgba(0,0,0,0.8) !important;
@@ -70,4 +70,18 @@ html[dark] .sbsb_a {
     color: var(--yt-spec-static-brand-white) !important;
 }
 
+.ytd-topbar-logo-renderer {
+  display: inline;
+  background-image: url(../theme/site-icons/archyt.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5px 2px 5px 2px;
+  }
+.yt-spec-icon-shape + div {
+    display: none;
+  }
+
+#country-code {
+    display: none;
+  }
 }
