@@ -19,7 +19,7 @@
     --uc-dark-light: #000000;
     --uc-ultima-accent-i: #DE81FF;
     --uc-ultima-accent-ii: #D984FF;
-    --uc-ultima-accent-iii: rgb(251, 201, 255);
+    --uc-ultima-accent-iii: rgb(255, 159, 253);
     --uc-ultima-accent-iv: rgba(26, 26, 34, 0.5);
     --uc-ultima-background-i: rgba(28, 27, 34, 0.5);
     --uc-ultima-background-ii: rgba(28, 27, 34, 0.86);
@@ -29,7 +29,6 @@
     --uc-selected: rgb(76, 59, 87);
     --uc-active: rgba(78, 77, 79, 0.52);
     --uc-text: rgb(255, 159, 253);
-    --uc-panel-border: rgba(25, 25, 25, 1);
     --uc-panel-border: rgba(25, 25, 25, 1);
     --uc-panel-border-ii: rgba(224, 156, 255, 0.5);
     --uc-context-menu: rgba(28, 27, 34,1);
