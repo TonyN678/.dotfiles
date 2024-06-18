@@ -216,17 +216,17 @@ scrollbox[orient="horizontal"] {
 
 #tabbrowser-tabs .tab-close-button {
   margin-inline-end: -3px !important;
-  height: 16px !important;
-  width: 16px !important;
+  height: 25px !important;
+  width: 25px !important;
   border-radius: var(--uc-button-border) !important;
-  display: none !important;
+  /*display: none !important;*/
   /*--removable--*/
 }
 
 #tabbrowser-tabs .close-icon {
   padding: 2px !important;
   border-radius: var(--uc-button-border) !important;
-  display: none !important;
+  /*display: none !important;*/
   /*--removable--*/
 }
 

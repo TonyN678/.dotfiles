@@ -9,12 +9,12 @@
 
 :root:not([customizing]) #tabbrowser-tabs:not(hover) {
     width: var(--uc-collapsed-tabs-width);
-    transition-delay: 10000ms;
+    transition-delay: 100ms;
 }
 
 :root:not([customizing]) #tabbrowser-tabs:hover {
     width: var(--uc-vertical-tabs-width-revert);
-    transition-delay: 10000ms;
+    transition-delay: 100ms;
 }
 
 /*--browser content will not move to the side--*/
