@@ -147,10 +147,10 @@
 
 body {background: var(--toolbar-bgcolor) !important;}
 
-/*--content window--*/
 
+/*--content window--*/
 #appcontent, #browser, #tabbrowser-tabbox, #tabbrowser-tabpanels, .browserSidebarContainer
-  { background: var(--toolbar-bgcolor) !important; }
+  { background: var(--toolbar-bgcolor) !important; border-width: 5px; border-color: #ffffff; }
 
 .browserStack
   { background: var(--uc-transparent) !important; }
@@ -208,8 +208,12 @@ body {background: var(--toolbar-bgcolor) !important;}
   background-color: var(--uc-context-menu) !important;
   color: var(--uc-light-dark) !important;
   width: 225px !important;
-  border: 1px solid var(--uc-text) !important;
+  border: 2px solid var(--uc-text) !important;
 }
+
+#tab-preview-panel {
+  border-width: 2px ;
+  margin: -45px 0px 0px 245px !important; /* translate the preview box to right next to tab */
 
 /*------------------URL bar----------------*/
 
@@ -527,4 +531,4 @@ width:16px !important; height:16px !important;}
 
 
 
-} /*--<--this marks the end of the journey--*/
+ /*--<--this marks the end of the journey--*/ }}

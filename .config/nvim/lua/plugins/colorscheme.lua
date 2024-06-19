@@ -1,6 +1,7 @@
 return {
   -- add dracula
   { "Mofiqul/dracula.nvim",
+    priority = 1000,
 
     config = function()
     local dracula = require("dracula")
@@ -9,20 +10,19 @@ return {
   -- customize dracula color palette
   colors = {
     bg = "#282A36",
-    fg = "#F8F8F2",
+    --fg = "#D6ACFF", --fg color of text nvim
     selection = "#44475A",
     comment = "#6272A4",
     red = "#FF5555",
-    orange = "#FFB86C",
+    orange = "#D6acff", -- footer of alpha
     yellow = "#F1FA8C",
-    green = "#50fa7b",
+    green = "#aad6f6",
     purple = "#BD93F9",
-    cyan = "#8BE9FD",
+    cyan = "#bd93f9",  -- header of alpha and also body color
     pink = "#FF79C6",
     bright_red = "#FF6E6E",
-    bright_green = "#69FF94",
+    bright_green = "#aad6f6",
     bright_yellow = "#FFFFA5",
-    bright_blue = "#D6ACFF",
     bright_magenta = "#FF92DF",
     bright_cyan = "#A4FFFF",
     bright_white = "#FFFFFF",
@@ -33,12 +33,14 @@ return {
     white = "#ABB2BF",
     black = "#191A21",
   },
+        opts = {
         custom_highlights = function(colors)
         return {
           AlphaShortcut = { fg = colors.red, bg = colors.mauve },
           AlphaHeader = { fg = colors.red, bg = colors.purple },
         }
-      end,
+      end
+        },
 
   -- show the '~' characters after the end of buffers
   show_end_of_buffer = true, -- default false
