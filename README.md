@@ -37,7 +37,6 @@
 <li>PDF Viewer: zathura</li>
 <li>Music Player: moc (Music On Console)</li>
 <li>Music Visualiser: cava</li>
-<li>Firefox Theme: Copied heavily from <a href="https://github.com/RoyalHeart">@RoyalHeart</a></li>
 <li>Screen Locker: betterlockscreen</li>
 <li>Network Manager: NetworkManager</li>
 <li>VPN Service: protonvpn-cli</li>
@@ -48,7 +47,7 @@
 
 <div align="left">
 <h2>Final Words</h2>
-<p>As the set-up is my daily driver for school and personal use, this repo will be maintained and updated regularly based on my own interest. The firefox customisation was mainly from <a href="https://github.com/RoyalHeart">@RoyalHeart</a> and <a href="https://github.com/Godiesc">@Godiesc</a>, therefore the css file in my repository contains some changes to the original file as to fit my taste of a perfect firefox homepage. </p>
+<p>As the set-up is my daily driver for school and personal use, this repo will be maintained and updated regularly based on my own interest. The firefox customisation was mainly from <a href="https://github.com/soulhotel/FF-ULTIMA">@soulhotel</a> with some minor changes to fit my taste.</p>
 <p>Qtile window manager is great for beginners to dive in the world of ricing linux since it's extremely hackable with both floating and tiling window mode. Definitely not a watse of time if you value your experience (Windows and MacOS are bloated)</p>
 </div>
 
