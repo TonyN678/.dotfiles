@@ -8,7 +8,7 @@
 
 <div align="left">
 <h2>Introduction</h2>
-<p>I started my ricing journey in December, 2023; finally decided to learn more about the linux system, to explore awesome unix's rices on <a href="https://www.reddit.com/r/unixporn">r/unixporn</a> and also craft my own tasty rice. ( I use arch btw :> )</p>
+<p>December 2023; finally decided to learn more about the linux system and the art of ricing through <a href="https://www.reddit.com/r/unixporn">r/unixporn</a>.</p>
 </div>
 
 <div align="left">
@@ -33,21 +33,20 @@
 
 #### Other Cool Programs
 <ul>
-<li>System Viewer: pfetch</li>
-<li>PDF Viewer: zathura</li>
-<li>Music Player: moc (Music On Console)</li>
-<li>Music Visualiser: cava</li>
-<li>Screen Locker: betterlockscreen</li>
-<li>Network Manager: NetworkManager</li>
-<li>VPN Service: protonvpn-cli</li>
-<li>Sound Daemon: pipewire (more convenient than pulseaudio)</li>
-<li>Bluetooth Tool: bluetoothctl</li>
-<li>Brightness Tool: birghtnessctl</li>
+<li><b>System Viewer:</b> neofetch</li>
+<li><b>PDF Viewer:</b> zathura</li>
+<li><b>Music Player:</b> moc (Music On Console)</li>
+<li><b>Music Visualiser:</b> cava</li>
+<li><b>Network Manager:</b> NetworkManager</li>
+<li><b>VPN Service:</b> protonvpn-cli</li>
+<li><b>Sound Daemon:</b> pipewire (more convenient than pulseaudio)</li>
+<li><b>Bluetooth Tool:</b> bluetoothctl</li>
+<li><b>Brightness Tool:</b> brightnessctl</li>
 </ul>
 
 <div align="left">
 <h2>Final Words</h2>
-<p>As the set-up is my daily driver for school and personal use, this repo will be maintained and updated regularly based on my own interest. The firefox customisation was mainly from <a href="https://github.com/soulhotel/FF-ULTIMA">@soulhotel</a> with some minor changes to fit my taste.</p>
+<p>As the set-up is my daily driver for school and personal use, this repo will be maintained and updated regularly based on my own interest. The firefox customisation was mainly from <a href="https://github.com/soulhotel/FF-ULTIMA">@soulhotel</a>'s FF-ULTIMA with some minor changes to fit my taste.</p>
 <p>Qtile window manager is great for beginners to dive in the world of ricing linux since it's extremely hackable with both floating and tiling window mode. Definitely not a watse of time if you value your experience (Windows and MacOS are bloated)</p>
 </div>
 
