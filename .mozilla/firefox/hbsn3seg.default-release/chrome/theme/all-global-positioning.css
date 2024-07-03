@@ -80,9 +80,11 @@ Spreadsheet of what every ultima-variable does: https://github.com/soulhotel/FF-
 /*--great for view-tab-in-sidebar extensions--*/
 #sidebar-box {
     max-width: 50vw !important;
-} #sidebar-box {
+} 
+#sidebar-box {
     min-width: 40px !important;
-    width: 18em;
+    width: 36vw;
+    padding: 0px 0px 0px 10px;
 }   /*defaults*/
 
 /*--default left side--<--*/
@@ -132,7 +134,7 @@ Spreadsheet of what every ultima-variable does: https://github.com/soulhotel/FF-
 #tabbrowser-tabpanels { browser[type] {
     border-radius: var(--uc-all-border-radius) !important;
     margin: var(--uc-all-margins) !important;
-    outline: 4px solid var(--toolbar-bgcolor);
+    outline: 20px solid var(--toolbar-bgcolor);
     padding: var(--uc-main-window-padding);
 }}
 

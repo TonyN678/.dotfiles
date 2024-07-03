@@ -164,7 +164,6 @@ body {background: var(--toolbar-bgcolor) !important;}
   background: var(--uc-sb-themed) !important;
 } #sidebar-box {
   background-color: var(--uc-transparent) !important;
-  box-shadow: 0.1rem 0.3rem 0.4rem -0.1rem rgba(25,25,25,0.8);
 }
 
 #sidebar-search-container #search-box, #sidebar-search-container #viewButton {
@@ -214,7 +213,7 @@ body {background: var(--toolbar-bgcolor) !important;}
 #tab-preview-panel {
   border-width: 2px ;
   margin: -45px 0px 0px 245px !important; /* translate the preview box to right next to tab */
-
+  }
 /*------------------URL bar----------------*/
 
 #main-window:not([lwtheme]) #urlbar:is([focused="true"], [open]) > #urlbar-background, #searchbar:focus-within {
@@ -289,6 +288,9 @@ body {background: var(--toolbar-bgcolor) !important;}
   --panel-color: black !important;
 }}
 
+menupopup {
+  padding-top: 100px;
+  }
 /*------------------buttons-----------------*/
 
 #TabsToolbar #firefox-view-button:hover:not([open]) > .toolbarbutton-icon
@@ -531,4 +533,4 @@ width:16px !important; height:16px !important;}
 
 
 
- /*--<--this marks the end of the journey--*/ }}
+ /*--<--this marks the end of the journey--*/ }

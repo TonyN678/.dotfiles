@@ -239,7 +239,7 @@ def init_colors():
         ["#d8dee9", "#d8dee9"],  # 9 white
         ["#4c566a", "#4c566a"],  # 10 grey
         ["#bae1ff", "#bae1ff"],  # 11 orange
-        ["#43e8d8", "#43e8d8"],  # 12 super cyan
+        ["#43e8d8", "#0951b6"],  # 12 super cyan
         ["#5e81ac", "#5e81ac"],  # 13 super blue
         ["#242831", "#242831"],  # 14 super dark background
         ["#00000000", "00000000"], #15 transparent black
@@ -247,8 +247,7 @@ def init_colors():
         ["#ecb4e2", "#ecb4e2"], #17 pink bubblegum
         ["#afeeff", "#afeeff"], #18 light cyan
 	    ["#6f7787", "#6f7787"], #19 light grey
-        #["#CAA9E0", "#CAA9E0"], #20 purple-pink"
-        ["#81a1c1", "#81a1c1"],  # 6 blue
+        ["#CAA9E0", "#CAA9E0"], #20 purple-pink"
     ]
 
 colors = init_colors()
