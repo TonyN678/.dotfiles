@@ -212,4 +212,11 @@ Spreadsheet of what every ultima-variable does: https://github.com/soulhotel/FF-
 #navigator-toolbox {
   margin: 6px -80px 0px 0px;
 }
+
+
+/* customise the area of the context-menu box when right clicking mouse to be to the left of cursor */
+#contentAreaContextMenu {
+  margin: 10px;
+}
+
 /*-------------------finish--------------------*/

@@ -7,11 +7,9 @@ Want to use sidebery instead? + More.
 Come to the modification page: https://github.com/soulhotel/FF-ULTIMA/blob/main/doc/Modification.md
 */
 
-@import url(theme/all-global-positioning.css);
-
-/*@import url(theme/all-global-theme-fullmoon.css);*/
 @import url(theme/all-global-theme-dracula.css);
-@import url(theme/all-global-theme-dusky.css);
+
+@import url(theme/all-global-positioning.css);
 
 @import url(theme/position-verttab.css);
 @import url(theme/position-verttab-gone.css);

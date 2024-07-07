@@ -22,3 +22,4 @@ user_pref("ultima.OS.linux", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("svg.context-properties.content.enabled", true);
 user_pref("toolkit.tabbox.switchByScrolling", true);
+user_pref("browser.chrome.toolbar_tips", false);
