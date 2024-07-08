@@ -227,8 +227,8 @@ layouts = [
 
 def init_colors():
     return [
-        ["#434c5e", "#293e39"],  # 0 background
-        ["#d8dee9", "#d8dee9"],  # 1 foreground
+        ["#1a1a2280", "#1a1a2280"],  # 0 background
+        ["#bd93f9", "#bd93f9"],  # 1 foreground
         ["#3b4252", "#3b4252"],  # 2 background lighter
         ["#bf616a", "#bf616a"],  # 3 red
         ["#a3be8c", "#a3be8c"],  # 4 green
@@ -293,7 +293,7 @@ screens = [
                     borderwidth = 0,
                     center_aligned = False,
                     disable_drag = False,
-                    fontsize = 16,
+                    fontsize = 14,
                     spacing=5,
 		            margin = 10,
 		            urgent_alert_method="line",
@@ -448,20 +448,20 @@ screens = [
 		                ),
  
         		widget.Systray(
-		            	icon_size = 25,
-			            padding = 5,
+		            	icon_size = 23,
+			            padding = 6,
 		                ),
         
             ],
             # the size of bar
-            45,
+            41,
             # opacity of bar
             opacity=1.0,
             # background color of bar --> transparent
-            background=["#00000000"],
+            background=["#292e39"],
 
             # Direction: north east south west
-	        margin = [0,0,-7,0],
+	        margin = [5,10,-1,10],
             border_width=[0,0,0,0],  # Draw top and bottom borders
             # border_color=["f0f0ef", "bae1ff", "f0f0ef", "bae1ff"]  # Borders are magenta
         )
