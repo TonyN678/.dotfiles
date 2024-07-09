@@ -227,7 +227,7 @@ layouts = [
 
 def init_colors():
     return [
-        ["#292e39", "#292e39"],  # 0 background
+        ["#14141e", "#14141e"],  # 0 background
         ["#bd93f9", "#bd93f9"],  # 1 foreground
         ["#3b4252", "#3b4252"],  # 2 background lighter
         ["#bf616a", "#bf616a"],  # 3 red
@@ -458,7 +458,7 @@ screens = [
             # opacity of bar
             opacity=1.0,
             # background color of bar --> transparent
-            background=["#3b4252"],
+            background=["#292e3a"],
 
             # Direction: north east south west
 	        margin = [5,10,-1,10],
