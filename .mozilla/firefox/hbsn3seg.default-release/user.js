@@ -22,4 +22,11 @@ user_pref("ultima.OS.linux", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("svg.context-properties.content.enabled", true);
 user_pref("toolkit.tabbox.switchByScrolling", true);
+
+/* Disable pop-ups when hover to close, newtab,... buttons that show keybinds */
 user_pref("browser.chrome.toolbar_tips", false);
+
+/* Disable Quick Find bar when accidentially type something */
+user_pref("accessibility.typeaheadfind.manual", false);
+user_pref("accessibility.typeaheadfind", false);
+user_pref("accessibility.typeaheadfind.autostart", false);
