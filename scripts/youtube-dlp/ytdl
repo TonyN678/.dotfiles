@@ -1,15 +1,22 @@
 #!/bin/sh
 
+# Author: Tien Nguyen
+#
+# Functionality: This is a script to download youtube videos and playlist with max ease possible.
+# run the function to see instructions and examples, ie. ./ytdl
 
 destination=$1
 
 case $1 in
--h)
-echo "put these values after the function separated by a space"
-echo "-1st is the directory to download to"
-echo "-2nd is the link to the youtube video"
-echo "-3rd is the video or playlist"
-echo "-4th is the items to download in the playlist"
+"")
+echo "Put these values after the function separated by a space:"
+echo "-1st is the directory to download to, ie. /Musics/."
+echo "-2nd is the link to the youtube video, ie. https://youtube.com/..."
+echo "-3rd is the "video" or "playlist" variable."
+echo "-4th is the items to download in the playlist, ie. 1:70 is item number 1 to item 70 if exist."
+echo " "
+echo "Example 1: ./scripts/youtube-dlp/ytdl Musics/ https://www.youtube.com/watch?v=jC8th45ywsa video"
+echo "Example 2: ./scripts/youtube-dlp/ytdl Musics/ https://www.youtube.com/playlist?=jC8th45ywsa playlist 1:40"
 	;;
 esac
 

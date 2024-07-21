@@ -8,3 +8,7 @@ alias offvpn="nmcli con down pvpn-ipv6leak-protection"
 alias fetch="clear; echo ""; neofetch"
 
 eval "$(starship init bash)"
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx

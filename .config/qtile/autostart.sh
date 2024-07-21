@@ -31,7 +31,7 @@ blueman-applet &
 # lxsession &
 
 # Enable Vietnamese input method
-# fcitx &
+fcitx5 &
 
 # Disable the screen timeout and display power management
 xset s off -dpms &

@@ -331,7 +331,7 @@ screens = [
                     ),
                 
                 widget.Spacer(
-                    length = 770,
+                    length = 750,
                         ),
 
                 widget.Battery(
