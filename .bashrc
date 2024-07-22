@@ -6,7 +6,7 @@ alias vpn="protonvpn-cli c -f"
 alias monitor="xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60 --brightness 0.7"
 alias offvpn="nmcli con down pvpn-ipv6leak-protection"
 alias fetch="clear; echo ""; neofetch"
-
+alias eza="eza --long --git"
 eval "$(starship init bash)"
 
 export GTK_IM_MODULE=fcitx
