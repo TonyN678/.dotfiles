@@ -402,8 +402,7 @@ screens = [
                     fontsize=16,
                     format = ' 󱩒 {percent:2.0%} ',
                     foreground=colors[20],
-                    backlight_name='amdgpu_bl0',
-                    #backlight_name='amdgpu_bl1',
+                    backlight_name='amdgpu_bl1',
                     decorations=[
                         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6)
                         ]

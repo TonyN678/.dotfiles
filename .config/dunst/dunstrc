@@ -49,7 +49,7 @@
 
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
-    progress_bar_height = 14
+    progress_bar_height = 16
 
     # Set the frame width of the progress bar
     progress_bar_frame_width = 4
@@ -88,7 +88,7 @@
     horizontal_padding = 14
 
     # Padding between text and icon.
-    text_icon_padding = 20
+    text_icon_padding = 15
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
@@ -214,7 +214,7 @@
     min_icon_size = 32
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 70
+    max_icon_size = 60
 
     # Paths to default icons (only neccesary when not using recursive icon lookup)
     icon_path = /home/tien/.config/dunst/icons/
