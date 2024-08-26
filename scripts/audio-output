@@ -2,6 +2,8 @@
 # Written by Tien Nguyen 
 
 # This is a script for changing audio output device through rofi
+
+
 # This return a list of audio output devices
 device_name_4_human=$(pactl list sinks | grep -ie "description:"|cut -d: -f2|sort)
 

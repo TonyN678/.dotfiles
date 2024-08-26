@@ -9,14 +9,14 @@ from qtile_extras.widget.decorations import RectDecoration
 import os, subprocess
 
 
-# Run the programs in autostart.sh once after start-up
+# Run the autostart.sh once after start-up of Qtile
 @hook.subscribe.startup_once
 def autostart_once():
 	home = os.path.expanduser('~/.config/qtile/autostart.sh')
 	subprocess.Popen([home])
 
 mod = "mod4" # window key
-alt_key = "mod1"
+alt_key = "mod1" # alt key
 
 terminal = "alacritty"
 
@@ -90,7 +90,7 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn("/home/tien/scripts/changevolume up")),
     Key(["control", alt_key], "up", lazy.spawn("/home/tien/scripts/changevolume up")),
 	
-    # Keys for toggling music player with headphones
+    # Keys for toggling music player with headphones through bluetooth
     Key([], "XF86AudioPause", lazy.spawn("/usr/bin/mocp -G")),
     Key([], "XF86AudioPlay", lazy.spawn("/usr/bin/mocp -G")),
     Key([], "XF86AudioNext", lazy.spawn("/usr/bin/mocp -f")),
@@ -130,8 +130,6 @@ for i in groups:
         [
         #CHANGE WORKSPACES
         Key([mod], i.name, lazy.group[i.name].toscreen()),
-        # Key([mod], "Tab", lazy.screen.next_group()),
-        # Key([mod, "shift" ], "Tab", lazy.screen.prev_group()),
 
         # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND STAY ON WORKSPACE
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
@@ -141,6 +139,8 @@ for i in groups:
     )
 
 # Add a ScratchPad Group With a terminal dropdown
+# Info: Scratchpad is a window that is invisible until activated and hidden again,
+# it is everywhere but also nowhere at the same time! (Sound like my quantum physic professor :>)
 groups.append(
     ScratchPad("scratchpad", [
         DropDown("term", f"{terminal} -o 'window.opacity=0.20'",x=0.25, y=0.15, width=0.45, height=0.6),
@@ -149,13 +149,13 @@ groups.append(
         DropDown("Visualiser", f"{terminal} -o 'window.opacity=0.50' 'font.size=5' -e cava ", y=0.15, x=0.35, width=0.3, height=0.70, on_focus_lost_hide=False),
         ])
     )
+
 # Add ScratchPad toogle key
 keys.extend([
     Key([mod, "shift"], "Return", lazy.group['scratchpad'].dropdown_toggle('term')),
     Key([mod], "m", lazy.group['scratchpad'].dropdown_toggle('music')),
     Key([mod], "v", lazy.group['scratchpad'].dropdown_toggle('protonvpn')),
 ])
-
 
 #--------------------- FLOATING WINDOW ------------------------- #
 
@@ -223,8 +223,6 @@ layouts = [
 """"""""""""""""""
 """" WIDGETS """""
 """"""""""""""""""
-
-
 def init_colors():
     return [
         ["#14141e", "#14141e"],  # 0 background
@@ -251,7 +249,6 @@ def init_colors():
     ]
 
 colors = init_colors()
-
 
 screens = [
     Screen(
@@ -340,7 +337,7 @@ screens = [
                     low_foreground=colors[7],
                     low_percentage=0.3,
                     # notification_timeout= ,
-                    # notify_below= 0.3,
+                    notify_below= 0.3,
                     padding=0,
                     show_short_text=False,
                     full_char='󰁹',
@@ -440,11 +437,6 @@ screens = [
                             RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6,group=True)
                         ]
                 ),
-
-
-               widget.Spacer(
-		                length = 5,	
-		                ),
  
         		widget.Systray(
 		            	icon_size = 23,
@@ -475,7 +467,7 @@ mouse = [
     Click([mod], "Button2", lazy.window.toggle_floating()),
 ]
 
-# dgroup list is for setting which application goes to which group
+# dgroup list is for setting which application goes to which group(window)
 dgroups_key_binder = None
 dgroups_app_rules = [
 	#Rule(Match(wm_class=['qutebrowser']), group="2"),
@@ -505,6 +497,7 @@ floating_layout = layout.Floating(
         Match(wm_class="Lxappearance"),  
         Match(wm_class="Nm-connection-editor"), 
         Match(wm_class="Grub-customizer"), 
+        Match(wm_class="protonvpn-app"), 
         Match(title="htop"), 
         Match(title="cava"), 
     ],
@@ -531,4 +524,4 @@ wl_input_rules = None
 #
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
-wmname = f"Qtile {VERSION}"
+wmname = "Qtile"
