@@ -99,6 +99,12 @@ keys = [
     # For changing audio output device
     Key([mod], "a", lazy.spawn("/home/tien/scripts/audio-output")),
     
+    # For Wifi toggle 
+    Key([mod], "i", lazy.spawn("/home/tien/scripts/wifimenu")),
+    
+    # For bluetooth toggle
+    Key([mod], "b", lazy.spawn("/home/tien/scripts/bluetooth")),
+    
     # For taking screenshot with selected area with scrot
     Key([mod], "p", lazy.spawn("/usr/bin/scrot --select")),
 
@@ -328,7 +334,7 @@ screens = [
                     ),
                 
                 widget.Spacer(
-                    length = 750,
+                    length = 715,
                         ),
 
                 widget.Battery(
@@ -438,11 +444,34 @@ screens = [
                         ]
                 ),
  
-        		widget.Systray(
-		            	icon_size = 23,
-			            padding = 6,
-		                ),
-        
+                widget.Spacer(
+                        length = 10,
+                        ),
+                
+                widget.TextBox(
+                    font='FiraCode Nerd Font Propo', 
+                    text = "  ",
+                    foreground = colors[20],
+                    fontsize = 21,
+                    mouse_callbacks = {'Button1': lazy.spawn('./scripts/wifimenu')},
+                    decorations=[
+                        RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6, padding_x=0)]
+                    ),
+                
+                widget.Spacer(
+                        length = 10,
+                        ),
+                
+                widget.TextBox(
+                    font='FiraCode Nerd Font Propo', 
+                    text = "  ",
+                    foreground = colors[20],
+                    fontsize = 21,
+                    mouse_callbacks = {'Button1': lazy.spawn('./scripts/bluetooth')},
+                    decorations=[
+                        RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6, padding_x=0)]
+                    ),
+      
             ],
             # the size of bar
             41,

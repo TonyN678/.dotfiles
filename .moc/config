@@ -61,7 +61,7 @@
 # within which it was originally started.
 
 # Show file titles (title, author, album) instead of file names?
-ReadTags = yes
+#ReadTags = yes
 
 # In which directory do you store your music files?  If you specify it
 # you will be able to jump straight to this directory with the '-m'
@@ -69,18 +69,18 @@ ReadTags = yes
 #
 # Example:    MusicDir = "/home/joe/music"
 #
-MusicDir = "/home/tien/Musics"
+#MusicDir =
 
 # Start in the music directory by default?  If set to 'no', start
 # in the current directory by default.  A single directory on
 # the command line takes precedence.
-StartInMusicDir = yes
+#StartInMusicDir = no
 
 # How to sort?  FileName is the option's only value for now.
-Sort = FileName
+#Sort = FileName
 
 # Show errors in the streams (for example, broken frames in MP3 files)?
-ShowStreamErrors = yes
+#ShowStreamErrors = no
 
 # Ignore CRC errors in MP3 files?  Most players do that, so the default
 # value is 'yes'.
@@ -144,7 +144,7 @@ SoundDriver = ALSA:OSS:JACK
 #
 #    ALSADevice=tee:hw,'/tmp/out.wav',wav
 #
-ALSADevice = sysdefault
+#ALSADevice = default
 #ALSAMixer1 = PCM
 #ALSAMixer2 = Master
 
@@ -183,18 +183,18 @@ ALSADevice = sysdefault
 #ShowHiddenFiles = no
 
 # Hide file name extensions?
-HideFileExtension = yes
+#HideFileExtension = no
 
 # Show file format in menu?
-ShowFormat = no
+#ShowFormat = yes
 
 # Show file time in menu?  Possible values: 'yes', 'no' and 'IfAvailable'
 # (meaning show the time only when it is already known, which often works
 # faster).
-ShowTime = no
+#ShowTime = IfAvailable
 
 # Show time played as a percentage in the time progress bar.
-ShowTimePercent = yes
+#ShowTimePercent = no
 
 # Values of the TERM environment variable which are deemed to be managed by
 # screen(1).  If you are setting a specific terminal using screen(1)'s
@@ -219,8 +219,8 @@ ShowTimePercent = yes
 #
 # Example:    Theme = laras_theme
 #
-#Theme = nightly_theme
 Theme = nightshade
+
 # The theme used when running on an xterm.
 #
 # Example:    XTermTheme = transparent-background
@@ -477,8 +477,8 @@ Theme = nightshade
 #             and the directory menu at the bottom.  Playlist will
 #             occupy 10 lines and the directory menu the rest.
 #
-Layout1 = directory(0,0,100%,100%):playlist(0,0,100%,100%)
 #Layout1 = directory(0,0,50%,100%):playlist(50%,0,FILL,100%)
+#Layout2 = directory(0,0,100%,100%):playlist(0,0,100%,100%)
 #Layout3 = ""
 
 # When the song changes, should the menu be scrolled so that the currently
