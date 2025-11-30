@@ -151,6 +151,7 @@ groups.append(
     ScratchPad("scratchpad", [
         DropDown("term", f"{terminal} -o 'window.opacity=0.20'",x=0.25, y=0.15, width=0.45, height=0.6),
         DropDown("music", f"{terminal} -e mocp", y=0.13, x=0.23, width=0.5, height=0.7, on_focus_lost_hide=True),
+        DropDown("nmtui", f"{terminal} -e nmtui", y=0.13, x=0.23, width=0.5, height=0.7, on_focus_lost_hide=False),
         DropDown("protonvpn", f"{terminal} -e protonvpn-cli connect", y=0.13, x=0.23, width=0.5, height=0.7),
         DropDown("Visualiser", f"{terminal} -o 'window.opacity=0.50' 'font.size=5' -e cava ", y=0.15, x=0.35, width=0.3, height=0.70, on_focus_lost_hide=False),
         ])
@@ -453,7 +454,7 @@ screens = [
                     text = "  ",
                     foreground = colors[20],
                     fontsize = 21,
-                    mouse_callbacks = {'Button1': lazy.spawn('nmtui')},
+                    mouse_callbacks = {'Button1': lazy.group['scratchpad'].dropdown_toggle('nmtui')},
                     decorations=[
                         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6, padding_x=0)]
                     ),
