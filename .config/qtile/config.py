@@ -453,7 +453,7 @@ screens = [
                     text = "  ",
                     foreground = colors[20],
                     fontsize = 21,
-                    mouse_callbacks = {'Button1': lazy.spawn('./scripts/wifimenu')},
+                    mouse_callbacks = {'Button1': lazy.spawn('nmtui')},
                     decorations=[
                         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6, padding_x=0)]
                     ),
@@ -467,7 +467,7 @@ screens = [
                     text = "  ",
                     foreground = colors[20],
                     fontsize = 21,
-                    mouse_callbacks = {'Button1': lazy.spawn('./scripts/bluetooth')},
+                    mouse_callbacks = {'Button1': lazy.spawn('blueman-manager')},
                     decorations=[
                         RectDecoration(colour=colors[0], radius=13, filled=True, padding_y=6, padding_x=0)]
                     ),
